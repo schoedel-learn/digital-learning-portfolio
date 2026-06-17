@@ -102,6 +102,15 @@
             text-align: center;
         }
 
+        .portfolio-logo-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+            border: 1px solid #d7dee6;
+            box-shadow: 0 4px 12px rgba(15, 48, 87, 0.08);
+        }
+
         /* Right Side: Title & Description */
         .portfolio-content {
             flex: 1;
@@ -273,16 +282,17 @@
         <!-- 1. LearnCAT Diocese of Baton Rouge -->
         <article class="portfolio-item">
             <div class="portfolio-logo-container">
-                <div class="portfolio-logo-placeholder" aria-hidden="true">LearnCAT LMS</div>
+                <img class="portfolio-logo-image" src="images/LearnCAT-view.png" alt="LearnCAT course page view">
             </div>
             <div class="portfolio-content">
                 <h2>LearnCAT: Diocese of Baton Rouge</h2>
-                <div class="coursework-tags">Applying: Organizational Learning | Educational Technologies</div>
-                <p>Architected and deployed the LearnCAT Learning Management System for the Diocese of Baton Rouge. By designing a centralized, easily accessible digital infrastructure, the system unified disparate training efforts and allowed for scalable, asynchronous faith formation and administrative training across diverse parish communities.</p>
-                <p class="project-status">Supporting project links and visual assets are being finalized for this public portfolio release.</p>
+                <div class="coursework-tags">Project: Create a learning environment that faciliates Catholic faith formation</div>
+                <p>Architected and deployed the LearnCAT <em>Learning Management System</em> for the Diocese of Baton Rouge. By designing a centralized, easily accessible digital infrastructure, the system renewed formation efforts and allowed for scalable, asynchronous faith formation and administrative training across diverse parish communities and Catholic schools.</p>
+                <p>This project included the development and implementation of a new eight course curriculum. I employed 5 diocesan instructors to help with course development as subject matter experts. I was the content creator for, The Catholic Identity of the Catholic School course, and the editor for all the others.</p>
                 <div class="pedagogy-block">
-                    <p><strong>Adult Learning Principle: Situated Cognition (Lave & Wenger, 1991).</strong> Adults learn best when the learning environment directly reflects the organizational culture and the specific context in which they will apply their knowledge.</p>
-                    <p><strong>Evidence-Based Design:</strong> This portfolio section is paired with a current literature review, and the final 2024-2026 APA citation details will be added in the next content revision.</p>
+                    <p><strong>Applied Adult Learning Principle: Social Cognition and Communities of Practice (Lave & Wenger, 1991).</strong> Situated cognition (or social cognition) holds that learning is inseparable from the context in which it occurs. Lave & Wenger’s have made an enormous contribution to organizational culture in the United States and Canada through the development of our conception of communities of practice. The real gift of their research is that it helped people recognize that learning isn't an individual cognitive exercises.</p>
+                    <p>Adult professionals who participate in communities of practice benefit from the culture of that community in ways that deepen their knowledge and professionalization. I differ from Lave and Wenger in that I am not a strict constructionist but I value their insight. In learning design, especially in particular context, I consider how I can facilitate the development of communities of practice.</p> 
+                    <p><strong>Technical design</strong>This platform was built using the open source version of WordPress, extending it with an LMS called Learndash. The course content was developed using Articulate and those files were exported/imported as xAPI (rather than SCORM). The choice for xAPI was for deeper learner analytics and the relative drag of SCORM files. LearnCAT also utilizes WooCommerce for payment/registration and has a security extension that includes MFA and DDoS protection. This and various forms are automated to send data to Google Sheets.</p>
                 </div>
             </div>
         </article>

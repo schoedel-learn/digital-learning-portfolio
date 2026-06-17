@@ -37,12 +37,14 @@ reject_fixed 'via.placeholder.com' "Found placeholder images"
 reject_fixed 'your-actual-' "Found placeholder social profile handles"
 reject_fixed '[Insert your 2024-2026 citation here]' "Found inline citation placeholders"
 reject_fixed '[Note: Insert the specific 2024-2026 APA citations' "Found references placeholder note"
-reject_fixed '<img ' "Found old placeholder image tags"
 reject_fixed '<a href="#"' "Found legacy placeholder anchors"
 reject_fixed '<a class="social-link" href="https://linkedin.com/' "LinkedIn footer entry is still an anchor"
+reject_fixed '<img src="https://via.placeholder.com/' "Found old placeholder image tags"
 
 placeholder_count=$(grep -Fc '<div class="portfolio-logo-placeholder" aria-hidden="true">' "$file")
-[[ "$placeholder_count" -eq 7 ]] || fail "Expected 7 non-clickable placeholder panels, found $placeholder_count"
+[[ "$placeholder_count" -eq 6 ]] || fail "Expected 6 non-clickable placeholder panels, found $placeholder_count"
+
+require_fixed '<img class="portfolio-logo-image" src="images/LearnCAT-view.png" alt="LearnCAT course page view">' "LearnCAT image is not using the expected local asset markup"
 
 if perl -0ne 'exit((/<a\b[^>]*>\s*<div class="portfolio-logo-placeholder" aria-hidden="true">/s) ? 1 : 0)' "$file"; then
   :
