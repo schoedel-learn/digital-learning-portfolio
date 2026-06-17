@@ -1,0 +1,53 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+cd "$(dirname "$0")/.."
+
+file="index.html"
+
+fail() {
+  printf 'FAIL: %s\n' "$1" >&2
+  exit 1
+}
+
+require_fixed() {
+  local needle="$1"
+  local message="$2"
+  if ! grep -Fq "$needle" "$file"; then
+    fail "$message"
+  fi
+}
+
+reject_fixed() {
+  local needle="$1"
+  local message="$2"
+  if grep -Fq "$needle" "$file"; then
+    fail "$message"
+  fi
+}
+
+[[ -f "$file" ]] || fail "Missing index.html"
+
+require_fixed '<h1>Digital Learning Portfolio</h1>' "Missing portfolio heading"
+require_fixed '<a class="social-link" href="https://github.com/schoedel-learn" target="_blank" rel="noopener noreferrer">' "GitHub footer link is not the exact expected link"
+require_fixed '<span class="social-link disabled" aria-label="LinkedIn profile coming soon">' "LinkedIn footer entry is not rendered as a disabled non-link"
+
+reject_fixed 'href="#"' "Found placeholder project links"
+reject_fixed 'via.placeholder.com' "Found placeholder images"
+reject_fixed 'your-actual-' "Found placeholder social profile handles"
+reject_fixed '[Insert your 2024-2026 citation here]' "Found inline citation placeholders"
+reject_fixed '[Note: Insert the specific 2024-2026 APA citations' "Found references placeholder note"
+reject_fixed '<img ' "Found old placeholder image tags"
+reject_fixed '<a href="#"' "Found legacy placeholder anchors"
+reject_fixed '<a class="social-link" href="https://linkedin.com/' "LinkedIn footer entry is still an anchor"
+
+placeholder_count=$(grep -Fc '<div class="portfolio-logo-placeholder" aria-hidden="true">' "$file")
+[[ "$placeholder_count" -eq 7 ]] || fail "Expected 7 non-clickable placeholder panels, found $placeholder_count"
+
+if perl -0ne 'exit((/<a\b[^>]*>\s*<div class="portfolio-logo-placeholder" aria-hidden="true">/s) ? 1 : 0)' "$file"; then
+  :
+else
+  fail "Found placeholder panels wrapped in anchors"
+fi
+
+printf 'PASS: portfolio launch checks passed\n'

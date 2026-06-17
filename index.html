@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Learning Portfolio | Barry Schoedel</title>
+    <!-- FontAwesome for GitHub and LinkedIn Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Base Styles & Typography */
+        :root {
+            --primary-color: #0f3057;
+            --text-color: #333333;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --accent-color: #17a2b8;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0 0 0.5rem 0;
+            font-size: 2.5rem;
+        }
+
+        header p {
+            margin: 0;
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* Layout Container */
+        .container {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+            flex: 1;
+            width: 100%;
+        }
+
+        /* Portfolio Item Styles */
+        .portfolio-item {
+            display: flex;
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-bottom: 2.5rem;
+            overflow: hidden;
+            transition: transform 0.2s ease;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+        }
+
+        /* Left Side: Logo/Placeholder */
+        .portfolio-logo-container {
+            flex: 0 0 30%;
+            background-color: #e9ecef;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            border-right: 1px solid #eeeeee;
+        }
+
+        .portfolio-logo-placeholder {
+            width: 100%;
+            min-height: 130px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            border: 2px dashed #b8c2cc;
+            border-radius: 8px;
+            background: linear-gradient(135deg, #f8fbff 0%, #eef4f8 100%);
+            color: var(--primary-color);
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        /* Right Side: Title & Description */
+        .portfolio-content {
+            flex: 1;
+            padding: 2rem;
+        }
+
+        .portfolio-content h2 {
+            margin-top: 0;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .portfolio-content p {
+            margin-bottom: 1.2rem;
+            color: #444444;
+        }
+
+        .project-status {
+            margin-bottom: 1rem;
+            color: #5c6770;
+            font-size: 0.95rem;
+            font-style: italic;
+        }
+        
+        .coursework-tags {
+            font-size: 0.85rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .pedagogy-block {
+            background-color: #f1f8ff;
+            border-left: 4px solid var(--primary-color);
+            padding: 1.2rem;
+            border-radius: 0 4px 4px 0;
+            font-size: 0.95rem;
+        }
+        
+        .pedagogy-block strong {
+            color: var(--primary-color);
+        }
+        
+        .pedagogy-block p {
+            margin-bottom: 0.8rem;
+        }
+        
+        .pedagogy-block p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* References Section */
+        .references-section {
+            background-color: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-top: 4rem;
+            margin-bottom: 2rem;
+        }
+
+        .references-section h2 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-top: 0;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .references-section h3 {
+            color: #555;
+            font-size: 1.1rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .reference-item {
+            margin-bottom: 1.2rem;
+            padding-left: 2em;
+            text-indent: -2em; /* APA hanging indent */
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: #555;
+        }
+
+        .references-note {
+            color: #555;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Footer & Socials */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 2.5rem;
+            margin-top: auto;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+        }
+
+        .social-link {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            transition: color 0.2s ease, transform 0.2s ease;
+        }
+
+        .social-link:hover {
+            color: var(--accent-color);
+            transform: translateY(-2px);
+        }
+
+        .social-link.disabled {
+            color: rgba(255, 255, 255, 0.78);
+            cursor: default;
+        }
+
+        .social-link.disabled:hover {
+            color: rgba(255, 255, 255, 0.78);
+            transform: none;
+        }
+
+        /* Responsive Design: Tablet and Mobile */
+        @media (max-width: 900px) {
+            .portfolio-item {
+                flex-direction: column;
+            }
+            
+            .portfolio-logo-container {
+                flex: 1 1 auto;
+                border-right: none;
+                border-bottom: 1px solid #eeeeee;
+                padding: 2.5rem 2rem;
+                width: 100%;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+            
+            .references-section {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Digital Learning Portfolio</h1>
+        <p>Candidate for Digital Learning Specialist | Catholic Leadership Institute</p>
+    </header>
+
+    <main class="container">
+
+        <!-- 1. LearnCAT Diocese of Baton Rouge -->
+        <article class="portfolio-item">
+            <div class="portfolio-logo-container">
+                <div class="portfolio-logo-placeholder" aria-hidden="true">LearnCAT LMS</div>
+            </div>
+            <div class="portfolio-content">
+                <h2>LearnCAT: Diocese of Baton Rouge</h2>
+                <div class="coursework-tags">Applying: Organizational Learning | Educational Technologies</div>
+                <p>Architected and deployed the LearnCAT Learning Management System for the Diocese of Baton Rouge. By designing a centralized, easily accessible digital infrastructure, the system unified disparate training efforts and allowed for scalable, asynchronous faith formation and administrative training across diverse parish communities.</p>
+                <p class="project-status">Supporting project links and visual assets are being finalized for this public portfolio release.</p>
+                <div class="pedagogy-block">
+                    <p><strong>Adult Learning Principle: Situated Cognition (Lave & Wenger, 1991).</strong> Adults learn best when the learning environment directly reflects the organizational culture and the specific context in which they will apply their knowledge.</p>
+                    <p><strong>Evidence-Based Design:</strong> This portfolio section is paired with a current literature review, and the final 2024-2026 APA citation details will be added in the next content revision.</p>
+                </div>
+            </div>
+        </article>
+
+        <!-- 2. Cyril-OCIA Training Chatbot -->
+        <article class="portfolio-item">
+            <div class="portfolio-logo-container">
+                <div class="portfolio-logo-placeholder" aria-hidden="true">Cyril-OCIA Chatbot</div>
+            </div>
+            <div class="portfolio-content">
+                <h2>Cyril-OCIA Training Chatbot</h2>
+                <div class="coursework-tags">Applying: Theories of Learning | Instructional Design</div>
+                <p>Engineered a specialized conversational AI agent to support the Order of Christian Initiation of Adults (OCIA). The chatbot was explicitly designed to act as a safe, 24/7 practice partner that guides catechists and candidates through complex theological concepts, supplementing rather than replacing human pastoral mentorship.</p>
+                <p class="project-status">Supporting project links and visual assets are being finalized for this public portfolio release.</p>
+                <div class="pedagogy-block">
+                    <p><strong>Adult Learning Principle: Scaffolded Practice & Andragogy (Knowles, 1984; Vygotsky, 1978).</strong> Adult learners benefit from immediate, low-stakes feedback that corrects misconceptions without judgment, keeping them in an active state of inquiry.</p>
+                    <p><strong>Evidence-Based Design:</strong> This portfolio section is paired with a current literature review, and the final 2024-2026 APA citation details will be added in the next content revision.</p>
+                </div>
+            </div>
+        </article>
+
+        <!-- 3. DRM - Diocesan Relationship Manager -->
+        <article class="portfolio-item">
+            <div class="portfolio-logo-container">
+                <div class="portfolio-logo-placeholder" aria-hidden="true">DRM Platform</div>
+            </div>
+            <div class="portfolio-content">
+                <h2>DRM - Diocesan Relationship Manager</h2>
+                <div class="coursework-tags">Applying: Organizational Learning | Educational Research and Statistics</div>
+                <p>Developed a comprehensive Relationship Manager to track engagement, learning milestones, and community participation across the diocese. This platform bridged the gap between passive learning metrics and active community involvement, giving leadership a holistic view of institutional health.</p>
+                <p class="project-status">Supporting project links and visual assets are being finalized for this public portfolio release.</p>
+                <div class="pedagogy-block">
+                    <p><strong>Adult Learning Principle: Connectivism (Siemens, 2005).</strong> In a digital age, learning occurs not just within the individual, but across the networks and relationships that individuals maintain within their organization.</p>
+                    <p><strong>Evidence-Based Design:</strong> This portfolio section is paired with a current literature review, and the final 2024-2026 APA citation details will be added in the next content revision.</p>
+                </div>
+            </div>
+        </article>
+
+        <!-- 4. xAPI Statement Monitor -->
+        <article class="portfolio-item">
+            <div class="portfolio-logo-container">
+                <div class="portfolio-logo-placeholder" aria-hidden="true">xAPI Monitor</div>
+            </div>
+            <div class="portfolio-content">
+                <h2>xAPI Statement Monitor</h2>
+                <div class="coursework-tags">Applying: Educational Research and Statistics | Educational Technologies</div>
+                <p>Built a backend tracking system utilizing the Experience API (xAPI) to capture granular, cross-platform learning behaviors. Moving beyond standard SCORM completion tracking, this monitor gathered data on engagement, time-on-task, and interactive choices to evaluate instructional effectiveness.</p>
+                <p class="project-status">Supporting project links and visual assets are being finalized for this public portfolio release.</p>
+                <div class="pedagogy-block">
+                    <p><strong>Adult Learning Principle: Data-Driven Metacognition (Winne & Baker, 2013).</strong> By analyzing behavioral patterns, instructional designers can adjust learning paths in real-time to match the learner's actual cognitive state rather than a presumed pace.</p>
+                    <p><strong>Evidence-Based Design:</strong> This portfolio section is paired with a current literature review, and the final 2024-2026 APA citation details will be added in the next content revision.</p>
+                </div>
+            </div>
+        </article>
+
+        <!-- 5. LXPython -->
+        <article class="portfolio-item">
+            <div class="portfolio-logo-container">
+                <div class="portfolio-logo-placeholder" aria-hidden="true">LXPython</div>
+            </div>
+            <div class="portfolio-content">
+                <h2>LXPython: Mobile-First Instruction Environment</h2>
+                <div class="coursework-tags">Applying: Informal Learning and Adult Learning | Instructional Design</div>
+                <p>Designed and deployed LXPython, a mobile-first learning application. This project integrated official technical documentation with agentic AI facilitation, allowing adult learners to engage with complex programming material through a structured, highly modular environment.</p>
+                <p class="project-status">Supporting project links and visual assets are being finalized for this public portfolio release.</p>
+                <div class="pedagogy-block">
+                    <p><strong>Adult Learning Principle: Self-Directed Learning (Knowles, 1975).</strong> The application empowers self-motivated learners to take complete ownership of their progression, allowing them to adjust the pacing based on their prior technical knowledge.</p>
+                    <p><strong>Evidence-Based Design:</strong> This portfolio section is paired with a current literature review, and the final 2024-2026 APA citation details will be added in the next content revision.</p>
+                </div>
+            </div>
+        </article>
+
+        <!-- 6. Linux Learning Application and Glossary -->
+        <article class="portfolio-item">
+            <div class="portfolio-logo-container">
+                <div class="portfolio-logo-placeholder" aria-hidden="true">Linux Learning App</div>
+            </div>
+            <div class="portfolio-content">
+                <h2>Linux Learning Application and Glossary</h2>
+                <div class="coursework-tags">Applying: Instructional Design | Theories of Learning</div>
+                <p>Developed an interactive application and comprehensive glossary designed to demystify Linux server administration. The architecture chunked highly technical concepts into digestible, easily searchable micro-learning modules.</p>
+                <p class="project-status">Supporting project links and visual assets are being finalized for this public portfolio release.</p>
+                <div class="pedagogy-block">
+                    <p><strong>Adult Learning Principle: Cognitive Load Theory (Sweller, 1988).</strong> Adults facing high-complexity novel tasks have limited working memory; instruction must eliminate extraneous cognitive friction so mental effort is spent entirely on schema acquisition.</p>
+                    <p><strong>Evidence-Based Design:</strong> This portfolio section is paired with a current literature review, and the final 2024-2026 APA citation details will be added in the next content revision.</p>
+                </div>
+            </div>
+        </article>
+
+        <!-- 7. Cultural & Heritage Presentations -->
+        <article class="portfolio-item">
+            <div class="portfolio-logo-container">
+                <div class="portfolio-logo-placeholder" aria-hidden="true">Heritage Presentations</div>
+            </div>
+            <div class="portfolio-content">
+                <h2>Heritage Learning Presentations</h2>
+                <div class="coursework-tags">Applying: Informal Learning and Adult Learning | Theories of Learning</div>
+                <p>Curated and designed visual learning presentations focused on Mesoamerican history and Schoedel family heritage. These presentations utilized rich storytelling and archival visuals to transform historical data into deeply engaging, informal learning experiences.</p>
+                <p class="project-status">Supporting project links and visual assets are being finalized for this public portfolio release.</p>
+                <div class="pedagogy-block">
+                    <p><strong>Adult Learning Principle: Narrative Learning (Clark & Rossiter, 2008).</strong> Learning is profoundly accelerated when new information is anchored to a learner’s identity, emotional center, and ancestral narratives.</p>
+                    <p><strong>Evidence-Based Design:</strong> This portfolio section is paired with a current literature review, and the final 2024-2026 APA citation details will be added in the next content revision.</p>
+                </div>
+            </div>
+        </article>
+
+        <!-- Academic References Section -->
+        <section class="references-section">
+            <h2>References</h2>
+            
+            <h3>Foundational Adult Learning Principles</h3>
+            
+            <div class="reference-item">
+                Clark, M. C., & Rossiter, M. (2008). Narrative learning in adulthood. <em>New Directions for Adult and Continuing Education</em>, 2008(119), 61-70.
+            </div>
+
+            <div class="reference-item">
+                Knowles, M. S. (1975). <em>Self-directed learning: A guide for learners and teachers</em>. Association Press.
+            </div>
+            
+            <div class="reference-item">
+                Knowles, M. S. (1984). <em>The adult learner: A neglected species</em> (3rd ed.). Gulf Publishing.
+            </div>
+
+            <div class="reference-item">
+                Lave, J., & Wenger, E. (1991). <em>Situated learning: Legitimate peripheral participation</em>. Cambridge University Press.
+            </div>
+
+            <div class="reference-item">
+                Siemens, G. (2005). Connectivism: A learning theory for the digital age. <em>International Journal of Instructional Technology and Distance Learning</em>, 2(1), 3-10.
+            </div>
+            
+            <div class="reference-item">
+                Sweller, J. (1988). Cognitive load during problem solving: Effects on learning. <em>Cognitive Science</em>, 12(2), 257-285.
+            </div>
+            
+            <div class="reference-item">
+                Vygotsky, L. S. (1978). <em>Mind in society: The development of higher psychological processes</em>. Harvard University Press.
+            </div>
+
+            <div class="reference-item">
+                Winne, P. H., & Baker, R. S. (2013). The potentials of educational data mining for researching metacognition, motivation and self-regulated learning. <em>Journal of Educational Data Mining</em>, 5(1), 1-8.
+            </div>
+            
+            <h3>2024-2026 Evidence-Based Design Studies</h3>
+            <p class="references-note"><em>Recent 2024-2026 supporting studies are being finalized for publication and will be added in a follow-up update.</em></p>
+
+        </section>
+
+    </main>
+
+    <!-- Footer with Social Icons -->
+    <footer>
+        <div class="social-links">
+            <a class="social-link" href="https://github.com/schoedel-learn" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-github"></i> GitHub Profile
+            </a>
+            <span class="social-link disabled" aria-label="LinkedIn profile coming soon">
+                <i class="fab fa-linkedin"></i> LinkedIn profile coming soon
+            </span>
+        </div>
+    </footer>
+
+</body>
+</html>
