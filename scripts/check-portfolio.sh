@@ -44,7 +44,9 @@ reject_fixed '<img src="https://via.placeholder.com/' "Found old placeholder ima
 placeholder_count=$(grep -Fc '<div class="portfolio-logo-placeholder" aria-hidden="true">' "$file")
 [[ "$placeholder_count" -eq 6 ]] || fail "Expected 6 non-clickable placeholder panels, found $placeholder_count"
 
-require_fixed '<img class="portfolio-logo-image" src="images/LearnCAT-view.png" alt="LearnCAT course page view">' "LearnCAT image is not using the expected local asset markup"
+require_fixed '<div class="portfolio-image-stack">' "LearnCAT visual stack wrapper is missing"
+require_fixed '<img class="portfolio-logo-image" src="images/LearnCAT-view.png" alt="LearnCAT course page view">' "LearnCAT primary image is not using the expected local asset markup"
+require_fixed '<img class="portfolio-logo-image" src="images/LearnCAT_product_view.png" alt="LearnCAT product view">' "LearnCAT secondary image is not using the expected local asset markup"
 
 if perl -0ne 'exit((/<a\b[^>]*>\s*<div class="portfolio-logo-placeholder" aria-hidden="true">/s) ? 1 : 0)' "$file"; then
   :

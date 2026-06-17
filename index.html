@@ -77,7 +77,7 @@
 
         .portfolio-item.featured-visual .portfolio-logo-container {
             flex: 0 0 45%;
-            align-items: flex-start;
+            align-items: stretch;
             padding: 1rem;
         }
 
@@ -115,6 +115,13 @@
             border-radius: 8px;
             border: 1px solid #d7dee6;
             box-shadow: 0 4px 12px rgba(15, 48, 87, 0.08);
+        }
+
+        .portfolio-image-stack {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
         }
 
         /* Right Side: Title & Description */
@@ -292,7 +299,10 @@
         <!-- 1. LearnCAT Diocese of Baton Rouge -->
         <article class="portfolio-item featured-visual">
             <div class="portfolio-logo-container">
-                <img class="portfolio-logo-image" src="images/LearnCAT-view.png" alt="LearnCAT course page view">
+                <div class="portfolio-image-stack">
+                    <img class="portfolio-logo-image" src="images/LearnCAT-view.png" alt="LearnCAT course page view">
+                    <img class="portfolio-logo-image" src="images/LearnCAT_product_view.png" alt="LearnCAT product view">
+                </div>
             </div>
             <div class="portfolio-content">
                 <h2>LearnCAT: Diocese of Baton Rouge</h2>
