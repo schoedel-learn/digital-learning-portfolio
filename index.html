@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Digital Learning Portfolio | Barry Schoedel</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;600;700&family=Lexend:wght@500;600;700&display=swap" rel="stylesheet">
     <!-- FontAwesome for GitHub and LinkedIn Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -21,7 +24,7 @@
         }
 
         body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Cabin', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             line-height: 1.6;
             color: var(--text-color);
             background-color: var(--bg-color);
@@ -40,11 +43,13 @@
         }
 
         header h1 {
+            font-family: 'Lexend', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             margin: 0 0 0.5rem 0;
             font-size: 2.5rem;
         }
 
         header p {
+            font-family: 'Lexend', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             margin: 0;
             font-size: 1.2rem;
             opacity: 0.9;
@@ -57,6 +62,110 @@
             padding: 0 2rem;
             flex: 1;
             width: 100%;
+        }
+
+        @media (min-width: 1200px) {
+            .container {
+                max-width: 1360px;
+            }
+        }
+
+        .portfolio-carousel-shell {
+            position: relative;
+        }
+
+        .portfolio-carousel-controls {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .portfolio-carousel-status {
+            font-family: 'Lexend', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            color: var(--primary-color);
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+
+        .portfolio-carousel-arrows {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .portfolio-carousel-arrow {
+            width: 44px;
+            height: 44px;
+            border: 1px solid #d7dee6;
+            border-radius: 999px;
+            background: var(--card-bg);
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(15, 48, 87, 0.08);
+            transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+        }
+
+        .portfolio-carousel-arrow:hover:not(:disabled) {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 14px rgba(15, 48, 87, 0.12);
+        }
+
+        .portfolio-carousel-arrow:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+            box-shadow: none;
+        }
+
+        .portfolio-carousel-track {
+            display: flex;
+            gap: 1.5rem;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+
+        .portfolio-carousel-track::-webkit-scrollbar {
+            display: none;
+        }
+
+        .portfolio-slide {
+            flex: 0 0 100%;
+            scroll-snap-align: start;
+        }
+
+        .portfolio-carousel-track .portfolio-item,
+        .portfolio-carousel-track .references-section {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        .portfolio-carousel-dots {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.65rem;
+            margin-top: 1rem;
+        }
+
+        .portfolio-carousel-dot {
+            width: 11px;
+            height: 11px;
+            border: 0;
+            border-radius: 999px;
+            background: #c8d2dc;
+            padding: 0;
+            cursor: pointer;
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+
+        .portfolio-carousel-dot.is-active {
+            background: var(--primary-color);
+            transform: scale(1.15);
         }
 
         /* Portfolio Item Styles */
@@ -76,9 +185,9 @@
         }
 
         .portfolio-item.featured-visual .portfolio-logo-container {
-            flex: 0 0 45%;
+            flex: 0 0 47%;
             align-items: stretch;
-            padding: 1rem;
+            padding: 1.5rem 2rem 1.5rem 1.5rem;
         }
 
         /* Left Side: Logo/Placeholder */
@@ -121,16 +230,19 @@
             width: 100%;
             display: flex;
             flex-direction: column;
+            height: 100%;
             gap: 1rem;
+            justify-content: space-evenly;
         }
 
         /* Right Side: Title & Description */
         .portfolio-content {
             flex: 1;
-            padding: 2rem;
+            padding: 2.5rem 2.75rem;
         }
 
         .portfolio-content h2 {
+            font-family: 'Lexend', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             margin-top: 0;
             color: var(--primary-color);
             font-size: 1.5rem;
@@ -152,6 +264,7 @@
         }
         
         .coursework-tags {
+            font-family: 'Lexend', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             font-size: 0.85rem;
             color: var(--primary-color);
             margin-bottom: 1rem;
@@ -167,6 +280,7 @@
         }
         
         .pedagogy-block strong {
+            font-family: 'Lexend', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             color: var(--primary-color);
         }
         
@@ -189,6 +303,7 @@
         }
 
         .references-section h2 {
+            font-family: 'Lexend', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             color: var(--primary-color);
             font-size: 1.5rem;
             margin-top: 0;
@@ -198,6 +313,7 @@
         }
         
         .references-section h3 {
+            font-family: 'Lexend', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             color: #555;
             font-size: 1.1rem;
             margin-top: 2rem;
@@ -261,6 +377,18 @@
 
         /* Responsive Design: Tablet and Mobile */
         @media (max-width: 900px) {
+            .portfolio-carousel-controls {
+                justify-content: center;
+            }
+
+            .portfolio-carousel-status {
+                text-align: center;
+            }
+
+            .portfolio-carousel-arrows {
+                display: none;
+            }
+
             .portfolio-item {
                 flex-direction: column;
             }
@@ -290,14 +418,24 @@
 <body>
 
     <header>
-        <h1>Digital Learning Portfolio</h1>
-        <p>Candidate for Digital Learning Specialist | Catholic Leadership Institute</p>
+        <h1>Learning Design Portfolio</h1>
+        <p>Barry Schoedel | Learning Designer and Technologist</p>
     </header>
 
     <main class="container">
+        <section class="portfolio-carousel-shell" aria-label="Portfolio projects">
+            <div class="portfolio-carousel-controls">
+                <div class="portfolio-carousel-status" id="portfolioStatus" aria-live="polite"></div>
+                <div class="portfolio-carousel-arrows">
+                    <button class="portfolio-carousel-arrow" id="portfolioTop" type="button" aria-label="Back to top">&#8593;</button>
+                    <button class="portfolio-carousel-arrow" id="portfolioPrev" type="button" aria-label="Previous project">&#8592;</button>
+                    <button class="portfolio-carousel-arrow" id="portfolioNext" type="button" aria-label="Next project">&#8594;</button>
+                </div>
+            </div>
+            <div class="portfolio-carousel-track" id="portfolioTrack">
 
         <!-- 1. LearnCAT Diocese of Baton Rouge -->
-        <article class="portfolio-item featured-visual">
+        <article class="portfolio-item featured-visual portfolio-slide" data-slide-title="LearnCAT">
             <div class="portfolio-logo-container">
                 <div class="portfolio-image-stack">
                     <img class="portfolio-logo-image" src="images/LearnCAT-view.png" alt="LearnCAT course page view">
@@ -306,88 +444,119 @@
                 </div>
             </div>
             <div class="portfolio-content">
-                <h2>LearnCAT: Diocese of Baton Rouge</h2>
-                <div class="coursework-tags">Project: Create a learning environment that faciliates Catholic faith formation</div>
-                <p>Architected and deployed the LearnCAT <em>Learning Management System</em> for the Diocese of Baton Rouge. By designing a centralized, easily accessible digital infrastructure, the system renewed formation efforts and allowed for scalable, asynchronous faith formation and administrative training across diverse parish communities and Catholic schools.</p>
+                <h2>1) LearnCAT: Diocese of Baton Rouge</h2>
+                <div class="coursework-tags">Project: Create a learning environment that faciliates Catholic faith formation.  </div>
+                I architected, configured, and deployed the LearnCAT <em>Learning Management System</em> for the Diocese of Baton Rouge. By designing a centralized, easily accessible digital infrastructure, the system renewed formation efforts and allowed for scalable, asynchronous faith formation and administrative training across diverse parish communities and Catholic schools.</p>
                 <p>This project included the development and implementation of a new eight course curriculum. I employed 5 diocesan instructors to help with course development as subject matter experts. I was the content creator for, The Catholic Identity of the Catholic School course, and the editor for all the others.</p>
                 <div class="pedagogy-block">
-                    <p><strong>Applied Adult Learning Principle: Social Cognition and Communities of Practice (Lave & Wenger, 1991).</strong> Situated cognition (or social cognition) holds that learning is inseparable from the context in which it occurs. Lave & Wenger’s have made an enormous contribution to organizational culture in the United States and Canada through the development of our conception of communities of practice. The real gift of their research is that it helped people recognize that learning isn't an individual cognitive exercises.</p>
-                    <p>Adult professionals who participate in communities of practice benefit from the culture of that community in ways that deepen their knowledge and professionalization. I differ from Lave and Wenger in that I am not a strict constructionist but I value their insight. In learning design, especially in particular context, I consider how I can facilitate the development of communities of practice.</p> 
-                    <p><strong>Technical design</strong>This platform was built using the open source version of WordPress, extending it with an LMS called Learndash. The course content was developed using Articulate and those files were exported/imported as xAPI (rather than SCORM). The choice for xAPI was for deeper learner analytics and the relative drag of SCORM files. LearnCAT also utilizes WooCommerce for payment/registration and has a security extension that includes MFA and DDoS protection. This and various forms are automated to send data to Google Sheets.</p>
+                    <p><strong>Applied Adult Learning Principle: Social Cognition and Communities of Practice: </strong> Situated cognition (or social cognition) holds that learning is inseparable from the context in which it occurs. Lave & Wenger have made an enormous contribution to organizational culture in the United States and Canada through the development of our conception of communities of practice. The real gift of their research is that it helped people recognize that learning isn't an individual cognitive exercise.</p>
+                    <p>Adult professionals who participate in communities of practice benefit from the culture of that community in ways that deepen their knowledge and professionalization. I differ from Lave and Wenger in that I am not a strict constructionist but I value their insight. In learning design, especially in particular contexts, I consider how I can facilitate the development of communities of practice (Lave & Wenger, 1991).</p> 
+                    <p>This particular design used a blended format with xAPI files exported from Rise 											for learning content sections.The design has seven stages: 1) Course overview, which is like a syllabus but also includes information about how to use the platform 2) Introductory Exercise - this helps learners start to use the social features of the learning platform and get to know each other (using the forum) 3) Learning Content sections - opportunity for interested adults to grow in knowledge about the various topics 4) Instructor Faciliated Section: cohort is together with a facilitator fielding questions about content and bringing up challenging issues about it. By drawing on the knowledge the cohort already has this kind of facilitation can help professionalize as each learner is particpating and able to contribute - it's not a didactic session.</p>
+                    <p>This pattern is repated with 5) Learning Content II 6) Instructor Facilitated II 7) Concluding Exercise. Using a cohort model and encouraging participants to grow as communities of practice makes this learning experience different than one that is merely didactic. There are elements to the learning content that are more didactic but that is only a small part of the larger course design.</p>
+                    <p><strong>Technical design: </strong> This platform was built using the open source version of WordPress, extending it with an LMS called Learndash. The course content was developed using Articulate and those files were exported/imported as xAPI (rather than SCORM). The choice for xAPI was for deeper learner analytics and the relative drag of SCORM files. LearnCAT also utilizes WooCommerce for payment/registration and has a security extension that includes MFA and DDoS protection. This and various forms are automated to send data to Google Sheets.</p>
                 </div>
             </div>
         </article>
 
         <!-- 2. Cyril-OCIA Training Chatbot -->
-        <article class="portfolio-item">
+        <article class="portfolio-item featured-visual portfolio-slide" data-slide-title="Cyril-OCIA">
             <div class="portfolio-logo-container">
-                <div class="portfolio-logo-placeholder" aria-hidden="true">Cyril-OCIA Chatbot</div>
+                <div class="portfolio-image-stack">
+                    <img class="portfolio-logo-image" src="images/cyril_landing_i.png" alt="Cyril landing page view">
+                    <img class="portfolio-logo-image" src="images/cyril_bots_ii.png" alt="Cyril chatbot multi-bot view">
+                    <img class="portfolio-logo-image" src="images/cyril_landing_iii.png" alt="Cyril landing page feature view">
+                </div>
             </div>
             <div class="portfolio-content">
-                <h2>Cyril-OCIA Training Chatbot</h2>
-                <div class="coursework-tags">Applying: Theories of Learning | Instructional Design</div>
-                <p>Engineered a specialized conversational AI agent to support the Order of Christian Initiation of Adults (OCIA). The chatbot was explicitly designed to act as a safe, 24/7 practice partner that guides catechists and candidates through complex theological concepts, supplementing rather than replacing human pastoral mentorship.</p>
-                <p class="project-status">Supporting project links and visual assets are being finalized for this public portfolio release.</p>
+                <h2>2) Cyril-OCIA Training Chatbot</h2>
+                <div class="coursework-tags">Project: Create a learning object that is adaptive for an OCIA formation course.</div>
+                <p>I engineered a specialized conversational AI agent to support the Order of Christian Initiation of Adults (OCIA). The chatbot was explicitly designed to act as an educational tool that facilitates knowledge growth and practice confidence for OCIA leaders and catechists</p>
                 <div class="pedagogy-block">
-                    <p><strong>Adult Learning Principle: Scaffolded Practice & Andragogy (Knowles, 1984; Vygotsky, 1978).</strong> Adult learners benefit from immediate, low-stakes feedback that corrects misconceptions without judgment, keeping them in an active state of inquiry.</p>
-                    <p><strong>Evidence-Based Design:</strong> This portfolio section is paired with a current literature review, and the final 2024-2026 APA citation details will be added in the next content revision.</p>
+                    <p><strong>Adult Learning Principle: Scaffolded Practice & Andragogy: </strong> While andragogy has been challenged in different ways, Scholars demonstrate that Knowlesian andragogical principles are still considered widely applicable. Studies have demonstrated that their use yields better results than merely didactic approaches.</p>
+
+                    <p>The chatbot's conversational architecture provides graduated, responsive scaffolding, an approach that can adapt to the level of understanding of the learner and provide support based on that foundation. There is a significant body of literature that supports scaffolding for young and adult learners.</p>
+                    <p> Cyril wasn't built to be a standalone course but rather a resource within a course to use as a knowledge base but also to help make drafts of OCIA pastoral plans based on the literature it has access to. The larger course has only been prototyped but methodologically it facilitates pastoral practice away from the screen rather than learning in a way where learners are not in the actual reality where OCIA takes place. All of my course design considers the benefits and dangers of using screens in the learning process. I find creative ways to faciliate learning activities that take place off screen and unlike some profit based tools don't seek to keep users dependent upon the screen. There are many tools for keeping learners engaged on screen, but as Catholic we have a responsibility to orient people towards real relationships. This personalist philosophy is part of my design approach.</p>
+
+                    <p><strong>Technical Design: </strong> Cyril is built on a scalable Angular 21 framework, utilizing Angular Material and Tailwind CSS/PostCSS for a modern, responsive UI. The core learner experience is powered by the Google Gemini API, with provider interchangeability. A key feature is the RAG-style knowledge base, which leverages Firebase Firestore to enable administrators to update training data dynamically from within the application. Geospatial capabilities are integrated via Leaflet.js, facilitating interactive parish mapping.</p>
+                    <p><strong>Data Orchestration & Deployment: </strong> The system streamlines administrative tasks through automated workflows connecting Firebase, SendGrid, Google Sheets, and various Google APIs. The deployment architecture has matured from an initial Cloud Run prototype to a robust production environment on a Virtual Private Server (VPS). A custom build automation script handles the orchestration of the full stack:
+                    1) Landing Page: React-based frontend.
+                    2) Chat Interface: Angular application.
+                    3) Backend: Express API, managed via PM2 to ensure persistent performance and high availability.
+                    </p>
                 </div>
             </div>
         </article>
 
         <!-- 3. DRM - Diocesan Relationship Manager -->
-        <article class="portfolio-item">
+        <article class="portfolio-item featured-visual portfolio-slide" data-slide-title="DRM">
             <div class="portfolio-logo-container">
-                <div class="portfolio-logo-placeholder" aria-hidden="true">DRM Platform</div>
+                <div class="portfolio-image-stack">
+                    <img class="portfolio-logo-image" src="images/drm-screenshot-2.png" alt="DRM feature cards and CTA section">
+                    <img class="portfolio-logo-image" src="images/drm-screenshot-1.png" alt="DRM landing page overview">
+                    <img class="portfolio-logo-image" src="images/drm-screenshot-3.png" alt="DRM platform interface preview">
+                </div>
             </div>
             <div class="portfolio-content">
-                <h2>DRM - Diocesan Relationship Manager</h2>
-                <div class="coursework-tags">Applying: Organizational Learning | Educational Research and Statistics</div>
-                <p>Developed a comprehensive Relationship Manager to track engagement, learning milestones, and community participation across the diocese. This platform bridged the gap between passive learning metrics and active community involvement, giving leadership a holistic view of institutional health.</p>
-                <p class="project-status">Supporting project links and visual assets are being finalized for this public portfolio release.</p>
+                <h2>3) DRM – Diocesan Relationship Manager</h2>
+                <div class="coursework-tags">Project: Assist diocesan personnel in developing a consistent source of truth for those they serve to more effectively carry out the mission of their respective areas. </div>
+                <p> Developed a Diocesan Relationship Manager to track relations with parish ministry personnel, relevant school personnel, peers from other dioceses, apostolate leaders and vendors who work with the diocese. </p>
+                <p>While this platform wasn't designed as a course, learning activity or learner experience it functions as a means of managing knowledge in the form of vital information. Doing this well help personnel learn who their constituents and peers, etc. are across different areas of ministry. This is especially helpful for addressing knowledge loss from turnover and from knowledge silos from office to office. </p>
                 <div class="pedagogy-block">
                     <p><strong>Adult Learning Principle: Connectivism (Siemens, 2005).</strong> In a digital age, learning occurs not just within the individual, but across the networks and relationships that individuals maintain within their organization.</p>
-                    <p><strong>Evidence-Based Design:</strong> This portfolio section is paired with a current literature review, and the final 2024-2026 APA citation details will be added in the next content revision.</p>
+                    <p>Connectivism argues that in networked digital environments, learning resides in the connections between nodes — people, resources, and organizations — and that the capacity to maintain and traverse those networks is itself a core competency. Utilizing these connected networks becomes integral to learning.</p> 
+                    <p>Connectivism is a contemporary theory of learning that can be applied to professional settings that are highly dependent upon connected organizational structures (nodes) for success.Research shows that connectivist principles provide a coherent architecture for leadership and organizational development in digital contexts. In addition, empirical research demonstrates that connectivism-informed design strengthens learners' capacity for adaptive, networked knowledge construction in complex institutional environments.</p>
+
+                    <p><strong>Technical design:</strong> ● The DRM (Diocesan Relationship Manager) is a web-based information system designed to model the organizational, pastoral, and administrative complexity of a Catholic diocese. Technically, it combines a Laravel backend with a modern JavaScript frontend to manage structured entities such as contacts, clergy, parishes, organizations, forms, calendars, and custom data fields. Its architecture supports both internal administrative workflows and public-facing data collection through configurable forms, while maintaining relational links between people, roles, institutions, and ministry activities. This makes it possible to move beyond isolated spreadsheets or basic CRM records and instead manage diocesan life as an interconnected system.</p>
+                    <p>From an engineering standpoint, the platform is built for extensibility and operational visibility. It uses database-backed models and migrations to represent diocesan structures, supports authenticated staff workflows, and includes configurable entity types and custom fields so the data model can evolve without redesigning the application from scratch. Additional features such as liturgical calendar integration, workflow-oriented dashboards, and structured form submissions position the DRM not just as a contact manager, but as a diocesan operations platform capable of supporting communication, planning, reporting, and long-term institutional knowledge.</p>
                 </div>
             </div>
         </article>
 
         <!-- 4. xAPI Statement Monitor -->
-        <article class="portfolio-item">
+        <article class="portfolio-item featured-visual portfolio-slide" data-slide-title="xAPI Monitor">
             <div class="portfolio-logo-container">
-                <div class="portfolio-logo-placeholder" aria-hidden="true">xAPI Monitor</div>
+                <div class="portfolio-image-stack">
+                    <img class="portfolio-logo-image" src="images/xapi-i.png" alt="xAPI Statement Monitor screen one">
+                    <img class="portfolio-logo-image" src="images/xapi-ii.png" alt="xAPI Statement Monitor screen two">
+                    <img class="portfolio-logo-image" src="images/xapi-iii.png" alt="xAPI Statement Monitor screen three">
+                </div>
             </div>
             <div class="portfolio-content">
-                <h2>xAPI Statement Monitor</h2>
-                <div class="coursework-tags">Applying: Educational Research and Statistics | Educational Technologies</div>
+                <h2>4) xAPI LRS and Statement Monitor</h2>
+                <div class="coursework-tags">Project: Develop a tool for monitoring learner progress in a way that gives insight into learner behavior as well as tracking errors in the LMS</div>
                 <p>Built a backend tracking system utilizing the Experience API (xAPI) to capture granular, cross-platform learning behaviors. Moving beyond standard SCORM completion tracking, this monitor gathered data on engagement, time-on-task, and interactive choices to evaluate instructional effectiveness.</p>
-                <p class="project-status">Supporting project links and visual assets are being finalized for this public portfolio release.</p>
                 <div class="pedagogy-block">
-                    <p><strong>Adult Learning Principle: Data-Driven Metacognition (Winne & Baker, 2013).</strong> By analyzing behavioral patterns, instructional designers can adjust learning paths in real-time to match the learner's actual cognitive state rather than a presumed pace.</p>
-                    <p><strong>Evidence-Based Design:</strong> This portfolio section is paired with a current literature review, and the final 2024-2026 APA citation details will be added in the next content revision.</p>
+                    <p><strong>Applied Adult Learning Principle: Data-Driven Metacognition (Winne & Baker, 2013).</strong> By analyzing behavioral patterns, instructional designers can adjust learning paths in real-time to match the learner's actual cognitive state rather than a presumed pace.</p>
+                    <p>The purpose of using the xAPI file type instead of SCORM was to better understand and respond to learner activity. This can facilitate learning for the learner but also give administrators vital information about learner behavior in particular learning environments.</p>
+                    <p>Data-driven metacognition can be understood in a different ways, e.g. when adult learners realize there is some awareness of and accountability for their activity in a learning environment they are more likely to reflect upon and adjust how they think about it in ways that influences behavior positively for learning.</p>
+                    <p>However, when the system doesn't provide those insights due to an error and/or gets in the way of learner progression, it has a negative impact. When utilizing technologies to facilitate learning, a big part of that can be addressing bugs and shortcomings of these various technologies. This plugin I developed is one tool to do that.</p>
+                    <p><strong>Evidence-Based Design:</strong> xAPI (Experience API) packages generate structured learning event statements that record user activity in the form of data, often with timestamps, results, context, and completion metadata. Unlike SCORM, which is tightly coupled to an LMS runtime, xAPI statements can be sent from multiple environments and learning experiences, but they require a Learning Record Store (LRS) to receive, validate, store, and query those statements for analytics. The LRS is what makes xAPI useful at scale: it serves as the system of record for engagement, progression, completion, and behavioral data, enabling reporting across learning modules, platforms, and user contexts rather than confining analytics to a single course shell.</p>
+                    <p> The xAPI Statement Monitor was developed as a diagnostic layer to identify breakdowns between xAPI content, the LRS, and LearnDash course progression logic. In practice, it was used to trace malformed or missing statements, monitor whether expected completion and progress events were actually being transmitted, and compare those events against LearnDash’s own progression and completion states inside WordPress. This made it possible to detect where learner analytics and LMS completion behavior were diverging, isolate issues in statement formatting or delivery, and support more reliable reporting on whether learners had actually progressed through course activities as intended.</p>
                 </div>
             </div>
         </article>
 
         <!-- 5. LXPython -->
-        <article class="portfolio-item">
+        <article class="portfolio-item portfolio-slide" data-slide-title="LXPython">
             <div class="portfolio-logo-container">
                 <div class="portfolio-logo-placeholder" aria-hidden="true">LXPython</div>
             </div>
             <div class="portfolio-content">
-                <h2>LXPython: Mobile-First Instruction Environment</h2>
-                <div class="coursework-tags">Applying: Informal Learning and Adult Learning | Instructional Design</div>
+                <h2>5) LXPython – Mobile-First Instruction Environment</h2>
+                <div class="coursework-tags">Project: Design a mobile learning environment for a programming language that wasn't immediately boring, that doesn't start the same way every time, that was challenging and effective.  </div>
                 <p>Designed and deployed LXPython, a mobile-first learning application. This project integrated official technical documentation with agentic AI facilitation, allowing adult learners to engage with complex programming material through a structured, highly modular environment.</p>
-                <p class="project-status">Supporting project links and visual assets are being finalized for this public portfolio release.</p>
+                <p>LXPython, a mobile-first learning application for learning the Python programming language. I intentionally designed it for adult ADHD learners using evidence-based approaches. It starts out difficult rather than with the most basic and trivial information. It is project-based and structured for informal learning rather than a traditional school or text-book based approach. It is designed for people who want to learn rather than for people for whom learning is compulsory.</p>
+                <p>This project integrated official technical documentation with agentic AI facilitation, allowing adult learners to engage with complex programming material through a structured, modular, project-based, environment.</p>
                 <div class="pedagogy-block">
-                    <p><strong>Adult Learning Principle: Self-Directed Learning (Knowles, 1975).</strong> The application empowers self-motivated learners to take complete ownership of their progression, allowing them to adjust the pacing based on their prior technical knowledge.</p>
-                    <p><strong>Evidence-Based Design:</strong> This portfolio section is paired with a current literature review, and the final 2024-2026 APA citation details will be added in the next content revision.</p>
+                    <p><strong>Applied Adult Learning Principle: Self-Directed Learning (Knowles, 1975).</strong>Adults seek informal learning environments and approaches for personal and professional growth. Much of the learning that adults engage in is self-directed. When self-motivated adults prefer to be challenged in a way that doesn't waste their time.</p>
+                    <p><strong>Technical Design</strong> LXPython is technically designed as an Angular 21 learning application with a modern TypeScript frontend, Angular Material/CDK UI primitives, Tailwind/PostCSS styling, and optional server-side rendering through Angular SSR with a small Express host. Its core interactive feature is an in-browser Python runtime powered by Pyodide, which lets learners execute Python code directly in the client without depending on a remote execution server. The interface also embeds Monaco Editor for structured coding exercises, which makes the platform feel closer to a lightweight IDE than a static course page.</p>
+                    <p>On the data and intelligence side, LXPython uses Firebase Authentication and Cloud Firestore to persist learner profiles, chat history, learning progress, memories, code attempts, forum posts, and user secrets. The teaching layer is implemented as an AI learning agent service that builds responses from user profile data and stored learning history, then calls an LLM API to generate calibrated instructional guidance. In practice, that means the system is architected as a stateful adaptive learning environment: browser-based code execution for immediate practice, Firestore-backed learner state for persistence, and an AI facilitation layer that personalizes explanations, feedback, and progression over time.</p>
                 </div>
             </div>
         </article>
 
         <!-- 6. Linux Learning Application and Glossary -->
-        <article class="portfolio-item">
+        <article class="portfolio-item portfolio-slide" data-slide-title="Linux Learning App">
             <div class="portfolio-logo-container">
                 <div class="portfolio-logo-placeholder" aria-hidden="true">Linux Learning App</div>
             </div>
@@ -404,7 +573,7 @@
         </article>
 
         <!-- 7. Cultural & Heritage Presentations -->
-        <article class="portfolio-item">
+        <article class="portfolio-item portfolio-slide" data-slide-title="Heritage Presentations">
             <div class="portfolio-logo-container">
                 <div class="portfolio-logo-placeholder" aria-hidden="true">Heritage Presentations</div>
             </div>
@@ -421,7 +590,7 @@
         </article>
 
         <!-- Academic References Section -->
-        <section class="references-section">
+        <section class="references-section portfolio-slide" data-slide-title="References">
             <h2>References</h2>
             
             <h3>Foundational Adult Learning Principles</h3>
@@ -462,6 +631,9 @@
             <p class="references-note"><em>Recent 2024-2026 supporting studies are being finalized for publication and will be added in a follow-up update.</em></p>
 
         </section>
+            </div>
+            <div class="portfolio-carousel-dots" id="portfolioDots" aria-label="Portfolio slide navigation"></div>
+        </section>
 
     </main>
 
@@ -471,11 +643,116 @@
             <a class="social-link" href="https://github.com/schoedel-learn" target="_blank" rel="noopener noreferrer">
                 <i class="fab fa-github"></i> GitHub Profile
             </a>
-            <span class="social-link disabled" aria-label="LinkedIn profile coming soon">
-                <i class="fab fa-linkedin"></i> LinkedIn profile coming soon
-            </span>
+            <a class="social-link" href="https://www.linkedin.com/in/barrypschoedel" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-linkedin"></i> LinkedIn Profile
+            </a>
         </div>
     </footer>
+
+    <script>
+        (function () {
+            const track = document.getElementById('portfolioTrack');
+            const status = document.getElementById('portfolioStatus');
+            const topButton = document.getElementById('portfolioTop');
+            const previousButton = document.getElementById('portfolioPrev');
+            const nextButton = document.getElementById('portfolioNext');
+            const dotsContainer = document.getElementById('portfolioDots');
+            const carouselShell = document.querySelector('.portfolio-carousel-shell');
+
+            if (!track || !status || !topButton || !previousButton || !nextButton || !dotsContainer || !carouselShell) {
+                return;
+            }
+
+            const slides = Array.from(track.querySelectorAll('.portfolio-slide'));
+            const dotButtons = slides.map((slide, index) => {
+                const button = document.createElement('button');
+                button.type = 'button';
+                button.className = 'portfolio-carousel-dot';
+                button.setAttribute('aria-label', `Go to ${slide.dataset.slideTitle || `slide ${index + 1}`}`);
+                button.addEventListener('click', () => goToSlide(index));
+                dotsContainer.appendChild(button);
+                return button;
+            });
+
+            let activeIndex = 0;
+            let ticking = false;
+
+            function goToSlide(index) {
+                const clampedIndex = Math.max(0, Math.min(index, slides.length - 1));
+                const topOffset = 76;
+                const targetTop = (window.scrollY + carouselShell.getBoundingClientRect().top) - topOffset;
+
+                window.scrollTo({
+                    top: Math.max(targetTop, 0),
+                    behavior: 'smooth',
+                });
+
+                track.scrollTo({
+                    left: slides[clampedIndex].offsetLeft,
+                    behavior: 'smooth',
+                });
+            }
+
+            function setActiveSlide(index) {
+                activeIndex = index;
+                const title = slides[index].dataset.slideTitle || `Slide ${index + 1}`;
+                status.textContent = `${index + 1} / ${slides.length} - ${title}`;
+                previousButton.disabled = index === 0;
+                nextButton.disabled = index === slides.length - 1;
+
+                dotButtons.forEach((button, buttonIndex) => {
+                    const isActive = buttonIndex === index;
+                    button.classList.toggle('is-active', isActive);
+                    button.setAttribute('aria-current', isActive ? 'true' : 'false');
+                });
+            }
+
+            function getClosestSlideIndex() {
+                const trackBounds = track.getBoundingClientRect();
+                const trackCenter = trackBounds.left + (trackBounds.width / 2);
+
+                let closestIndex = 0;
+                let closestDistance = Number.POSITIVE_INFINITY;
+
+                slides.forEach((slide, index) => {
+                    const bounds = slide.getBoundingClientRect();
+                    const slideCenter = bounds.left + (bounds.width / 2);
+                    const distance = Math.abs(slideCenter - trackCenter);
+
+                    if (distance < closestDistance) {
+                        closestDistance = distance;
+                        closestIndex = index;
+                    }
+                });
+
+                return closestIndex;
+            }
+
+            function updateFromScroll() {
+                setActiveSlide(getClosestSlideIndex());
+                ticking = false;
+            }
+
+            track.addEventListener('scroll', () => {
+                if (!ticking) {
+                    window.requestAnimationFrame(updateFromScroll);
+                    ticking = true;
+                }
+            }, { passive: true });
+
+            topButton.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth',
+                });
+            });
+            previousButton.addEventListener('click', () => goToSlide(activeIndex - 1));
+            nextButton.addEventListener('click', () => goToSlide(activeIndex + 1));
+            window.addEventListener('resize', updateFromScroll);
+
+            setActiveSlide(0);
+        }());
+    </script>
 
 </body>
 </html>

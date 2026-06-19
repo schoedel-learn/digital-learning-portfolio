@@ -28,9 +28,9 @@ reject_fixed() {
 
 [[ -f "$file" ]] || fail "Missing index.html"
 
-require_fixed '<h1>Digital Learning Portfolio</h1>' "Missing portfolio heading"
+require_fixed '<h1>Learning Design Portfolio</h1>' "Missing portfolio heading"
 require_fixed '<a class="social-link" href="https://github.com/schoedel-learn" target="_blank" rel="noopener noreferrer">' "GitHub footer link is not the exact expected link"
-require_fixed '<span class="social-link disabled" aria-label="LinkedIn profile coming soon">' "LinkedIn footer entry is not rendered as a disabled non-link"
+require_fixed '<a class="social-link" href="https://www.linkedin.com/in/barrypschoedel" target="_blank" rel="noopener noreferrer">' "LinkedIn footer link is not the exact expected link"
 
 reject_fixed 'href="#"' "Found placeholder project links"
 reject_fixed 'via.placeholder.com' "Found placeholder images"
@@ -38,11 +38,10 @@ reject_fixed 'your-actual-' "Found placeholder social profile handles"
 reject_fixed '[Insert your 2024-2026 citation here]' "Found inline citation placeholders"
 reject_fixed '[Note: Insert the specific 2024-2026 APA citations' "Found references placeholder note"
 reject_fixed '<a href="#"' "Found legacy placeholder anchors"
-reject_fixed '<a class="social-link" href="https://linkedin.com/' "LinkedIn footer entry is still an anchor"
 reject_fixed '<img src="https://via.placeholder.com/' "Found old placeholder image tags"
 
 placeholder_count=$(grep -Fc '<div class="portfolio-logo-placeholder" aria-hidden="true">' "$file")
-[[ "$placeholder_count" -eq 6 ]] || fail "Expected 6 non-clickable placeholder panels, found $placeholder_count"
+[[ "$placeholder_count" -eq 3 ]] || fail "Expected 3 non-clickable placeholder panels, found $placeholder_count"
 
 require_fixed '<div class="portfolio-image-stack">' "LearnCAT visual stack wrapper is missing"
 require_fixed '<img class="portfolio-logo-image" src="images/LearnCAT-view.png" alt="LearnCAT course page view">' "LearnCAT primary image is not using the expected local asset markup"
