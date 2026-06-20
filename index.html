@@ -148,24 +148,28 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 0.65rem;
-            margin-top: 1rem;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
         }
 
         .portfolio-carousel-dot {
-            width: 11px;
-            height: 11px;
+            width: 16px;
+            height: 3px;
             border: 0;
-            border-radius: 999px;
-            background: #c8d2dc;
+            border-radius: 2px;
+            background: #d8e2eb;
             padding: 0;
             cursor: pointer;
-            transition: transform 0.2s ease, background-color 0.2s ease;
+            transition: width 0.25s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.25s ease;
+        }
+
+        .portfolio-carousel-dot:hover {
+            background: #b8c8d6;
         }
 
         .portfolio-carousel-dot.is-active {
+            width: 32px;
             background: var(--primary-color);
-            transform: scale(1.15);
         }
 
         /* Portfolio Item Styles */
@@ -500,10 +504,10 @@
                 <h2>3) LXPython – Mobile-First Instruction Environment</h2>
                 <div class="coursework-tags">Project: Design a mobile learning environment for a programming language that wasn't immediately boring, that doesn't start the same way every time, that was challenging and effective.  </div>
                 <p>Designed and deployed LXPython, a mobile-first learning application. This project integrated official technical documentation with agentic AI facilitation, allowing adult learners to engage with complex programming material through a structured, highly modular environment.</p>
-                <p>LXPython, a mobile-first learning application for learning the Python programming language. I intentionally designed it for adult ADHD learners using evidence-based approaches. It starts out difficult rather than with the most basic and trivial information. It is project-based and structured for informal learning rather than a traditional school or text-book based approach. It is designed for people who want to learn rather than for people for whom learning is compulsory.</p>
+                <p>LXPython is an application for learning the Python programming language. I intentionally designed it for adult ADHD learners using evidence-based approaches. It starts out difficult rather than with the most basic and trivial information. It is project-based and structured for informal learning rather than a traditional school or text-book based approach. It is designed for people who want to learn rather than for people for whom learning is compulsory.</p>
                 <p>This project integrated official technical documentation with agentic AI facilitation, allowing adult learners to engage with complex programming material through a structured, modular, project-based, environment.</p>
                 <div class="pedagogy-block">
-                    <p><strong>Applied Adult Learning Principle: Self-Directed Learning (Knowles, 1975).</strong> Adults seek out informal learning environments to fulfill specific personal and professional growth needs. According to self-directed learning theory, adult learners are highly self-motivated and prefer to take ownership of their instructional paths. Rather than following a rigid, linear curriculum, self-directed adults thrive when they can actively explore resources and seek answers just-in-time. This autonomy is particularly crucial for neurodivergent learners, such as those with ADHD, who can become disengaged by repetitive, elementary instruction and instead require immediate, stimulating, and meaningful engagement with complex tasks.</p>
+                    <p><strong>Applied Adult Learning Principle: Self-Directed Learning.</strong> Adults seek out informal learning environments to fulfill specific personal and professional growth needs. According to self-directed learning theory, adult learners are highly self-motivated and prefer to take ownership of their instructional paths. Rather than following a rigid, linear curriculum, self-directed adults thrive when they can actively explore resources and seek answers just-in-time. This autonomy is particularly crucial for neurodivergent learners, such as those with ADHD, who can become disengaged by repetitive, elementary instruction and instead require immediate, stimulating, and meaningful engagement with complex tasks.</p>
                     <p>In LXPython, this principle is operationalized by bypassing typical low-ceiling introductory tutorials in favor of immediate, high-cognitive-load coding challenges. By embedding official technical documentation alongside an interactive python runtime and an agentic AI tutor, the application functions as an adaptive, non-linear workspace. Learners are not forced into a compulsory, lock-step sequence; instead, they choose their own projects, test their code in real-time, and leverage the AI facilitator to resolve conceptual gaps on their own terms. This design respects the learner's self-concept as an independent problem-solver, facilitating deeper metacognitive awareness and active schema construction.</p>
                     <p><strong>Technical Design</strong> LXPython is technically designed as an Angular 21 learning application with a modern TypeScript frontend, Angular Material/CDK UI primitives, Tailwind/PostCSS styling, and optional server-side rendering through Angular SSR with a small Express host. Its core interactive feature is an in-browser Python runtime powered by Pyodide, which lets learners execute Python code directly in the client without depending on a remote execution server. The interface also embeds Monaco Editor for structured coding exercises, which makes the platform feel closer to a lightweight IDE than a static course page.</p>
                     <p>On the data and intelligence side, LXPython uses Firebase Authentication and Cloud Firestore to persist learner profiles, chat history, learning progress, memories, code attempts, forum posts, and user secrets. The teaching layer is implemented as an AI learning agent service that builds responses from user profile data and stored learning history, then calls an LLM API to generate calibrated instructional guidance. In practice, that means the system is architected as a stateful adaptive learning environment: browser-based code execution for immediate practice, Firestore-backed learner state for persistence, and an AI facilitation layer that personalizes explanations, feedback, and progression over time.</p>
@@ -535,7 +539,24 @@
             </div>
         </article>
 
-        <!-- 5. DRM - Diocesan Relationship Manager -->
+        <!-- 5. Under Development -->
+        <article class="portfolio-item portfolio-slide" data-slide-title="New Project">
+            <div class="portfolio-logo-container">
+                <div class="portfolio-logo-placeholder" aria-hidden="true">New Project</div>
+            </div>
+            <div class="portfolio-content">
+                <h2>5) Project Under Development</h2>
+                <div class="coursework-tags">Applying: Instructional Design | Adult Learning</div>
+                <p>A new learning design project is currently under development. Detailed specifications, visual assets, and supporting links will be provided upon public release.</p>
+                <p class="project-status">Supporting project links and visual assets are being finalized for this public portfolio release.</p>
+                <div class="pedagogy-block">
+                    <p><strong>Adult Learning Principle: Scaffolding (Vygotsky, 1978).</strong> Learning is optimized when structural supports are adjusted to the learner's developmental zone.</p>
+                    <p><strong>Evidence-Based Design:</strong> This portfolio section is paired with a current literature review, and the final 2024-2026 APA citation details will be added in the next content revision.</p>
+                </div>
+            </div>
+        </article>
+
+        <!-- 6. DRM - Diocesan Relationship Manager -->
         <article class="portfolio-item featured-visual portfolio-slide" data-slide-title="DRM">
             <div class="portfolio-logo-container">
                 <div class="portfolio-image-stack">
@@ -545,7 +566,7 @@
                 </div>
             </div>
             <div class="portfolio-content">
-                <h2>5) DRM – Diocesan Relationship Manager</h2>
+                <h2>6) DRM – Diocesan Relationship Manager</h2>
                 <div class="coursework-tags">Project: Assist diocesan personnel in developing a consistent source of truth for those they serve to more effectively carry out the mission of their respective areas. </div>
                 <p> Developed a Diocesan Relationship Manager to track relations with parish ministry personnel, relevant school personnel, peers from other dioceses, apostolate leaders and vendors who work with the diocese. </p>
                 <p>While this platform wasn't designed as a course, learning activity or learner experience it functions as a means of managing knowledge in the form of vital information. Doing this well help personnel learn who their constituents and peers, etc. are across different areas of ministry. This is especially helpful for addressing knowledge loss from turnover and from knowledge silos from office to office. </p>
@@ -560,13 +581,13 @@
             </div>
         </article>
 
-        <!-- 6. Linux Learning Application and Glossary -->
+        <!-- 7. Linux Learning Application and Glossary -->
         <article class="portfolio-item portfolio-slide" data-slide-title="Linux Learning App">
             <div class="portfolio-logo-container">
                 <div class="portfolio-logo-placeholder" aria-hidden="true">Linux Learning App</div>
             </div>
             <div class="portfolio-content">
-                <h2>Linux Learning Application and Glossary</h2>
+                <h2>7) Linux Learning Application and Glossary</h2>
                 <div class="coursework-tags">Applying: Instructional Design | Theories of Learning</div>
                 <p>Developed an interactive application and comprehensive glossary designed to demystify Linux server administration. The architecture chunked highly technical concepts into digestible, easily searchable micro-learning modules.</p>
                 <p class="project-status">Supporting project links and visual assets are being finalized for this public portfolio release.</p>
@@ -577,13 +598,13 @@
             </div>
         </article>
 
-        <!-- 7. Cultural & Heritage Presentations -->
+        <!-- 8. Cultural & Heritage Presentations -->
         <article class="portfolio-item portfolio-slide" data-slide-title="Heritage Presentations">
             <div class="portfolio-logo-container">
                 <div class="portfolio-logo-placeholder" aria-hidden="true">Heritage Presentations</div>
             </div>
             <div class="portfolio-content">
-                <h2>Heritage Learning Presentations</h2>
+                <h2>8) Heritage Learning Presentations</h2>
                 <div class="coursework-tags">Applying: Informal Learning and Adult Learning | Theories of Learning</div>
                 <p>Curated and designed visual learning presentations focused on Mesoamerican history and Schoedel family heritage. These presentations utilized rich storytelling and archival visuals to transform historical data into deeply engaging, informal learning experiences.</p>
                 <p class="project-status">Supporting project links and visual assets are being finalized for this public portfolio release.</p>
