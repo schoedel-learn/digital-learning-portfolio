@@ -41,7 +41,7 @@ reject_fixed '<a href="#"' "Found legacy placeholder anchors"
 reject_fixed '<img src="https://via.placeholder.com/' "Found old placeholder image tags"
 
 placeholder_count=$(grep -Fc '<div class="portfolio-logo-placeholder" aria-hidden="true">' "$file")
-[[ "$placeholder_count" -eq 3 ]] || fail "Expected 3 non-clickable placeholder panels, found $placeholder_count"
+[[ "$placeholder_count" -eq 2 ]] || fail "Expected 2 non-clickable placeholder panels, found $placeholder_count"
 
 require_fixed '<div class="portfolio-image-stack">' "LearnCAT visual stack wrapper is missing"
 require_fixed '<img class="portfolio-logo-image" src="images/LearnCAT-view.png" alt="LearnCAT course page view">' "LearnCAT primary image is not using the expected local asset markup"
