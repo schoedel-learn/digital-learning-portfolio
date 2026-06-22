@@ -676,26 +676,33 @@
             <div class="portfolio-logo-container">
                 <div class="portfolio-image-stack">
                     <img class="portfolio-logo-image" src="images/linux-learning-i.png" alt="Linux Terminal Glossary command library screen">
+                    <img class="portfolio-logo-image" src="images/linux-learning-ii.png" alt="Linux Sysadmin Terminal Flashcards sandbox shell overview">
+                    <img class="portfolio-logo-image" src="images/linux-learning-iii.png" alt="Linux Sysadmin Terminal Flashcards uptime practice card">
                 </div>
             </div>
             <div class="portfolio-content">
-                <h2>7) Linux Learning Application and Glossary</h2>
+                <h2>7) Linux Terminal Learning Application and Glossary</h2>
                 <div class="coursework-tags">Applying: Instructional Design | Theories of Learning</div>
                 <div class="interview-summary">
                     <div class="interview-summary-title">Interview summary</div>
                     <div class="summary-grid">
                         <div class="summary-item"><strong>Role:</strong> Technical learning designer and tool builder.</div>
-                        <div class="summary-item"><strong>Outcome:</strong> A searchable command glossary that turns Linux administration into browsable micro-learning.</div>
-                        <div class="summary-item"><strong>Design lens:</strong> Cognitive load theory, chunking, just-in-time support, and searchable reference learning.</div>
-                        <div class="summary-item"><strong>Technical scope:</strong> Command taxonomy, categorized search UI, server-administration content model, and operational tooling vocabulary.</div>
+                        <div class="summary-item"><strong>Outcome:</strong> A browser-based sysadmin practice environment that turns Linux command knowledge into scenario-driven recall, terminal rehearsal, and searchable reference learning.</div>
+                        <div class="summary-item"><strong>Design lens:</strong> Cognitive load theory, active retrieval, spaced repetition, progressive hints, and just-in-time glossary support.</div>
+                        <div class="summary-item"><strong>Technical scope:</strong> Static HTML/JavaScript application, 103-command database, mock bash terminal, accepted command variants, sudo-flow simulation, filters, persistent progress, and searchable cheat sheet.</div>
                     </div>
                 </div>
-                <p>Developed an interactive application and comprehensive glossary designed to demystify Linux server administration. The architecture chunked highly technical concepts into digestible, easily searchable micro-learning modules.</p>
-                <p class="project-status">The current preview shows a searchable terminal command library with categories for server administration, Docker, Git, GitHub CLI, AI agents, and related operational workflows.</p>
+                <p>Developed an interactive Linux sysadmin learning application that combines terminal practice, scenario-based flashcards, command explanations, and a searchable glossary. The tool is designed for learners who need to move beyond recognizing commands toward recalling the right command, syntax, and flags in realistic administrative situations.</p>
+                <p>The application presents each command as an operational task, then gives learners multiple ways to practice: a sandbox shell for active recall, multiple-choice checks for recognition, true/false prompts for concept review, and expandable hints for graduated support. The searchable command grid keeps reference material available without making it the first step, so the experience balances practice, correction, and quick lookup.</p>
+                <p class="project-status">The current preview shows the Linux Sysadmin Terminal Flashcards interface with 103 command cards, domain filters, progress tracking, a mock bash terminal, and the cheat sheet/glossary search area.</p>
                 <details class="pedagogy-block">
                     <summary>Academic and technical design notes</summary>
-                    <p><strong>Adult Learning Principle: Cognitive Load Theory (Sweller, 1988).</strong> Adults facing high-complexity novel tasks have limited working memory; instruction must eliminate extraneous cognitive friction so mental effort is spent entirely on schema acquisition.</p>
-                    <p><strong>Evidence-Based Design:</strong> This portfolio section is paired with a current literature review, and the final 2024-2026 APA citation details will be added in the next content revision.</p>
+                    <p><strong>Adult Learning Principle: Cognitive Load Theory (Sweller, 1988).</strong> Linux administration asks beginners to coordinate vocabulary, syntax, filesystem concepts, privilege boundaries, and consequences all at once. The design reduces extraneous load by separating the command domain list, the active scenario, the practice terminal, and the glossary into predictable regions of the interface. Learners can focus on the current objective without losing access to supporting reference material.</p>
+                    <p><strong>Active Retrieval and Spaced Repetition:</strong> The primary learning path is recall-first. Command names are hidden behind practical scenarios such as checking kernel release, inspecting filesystems, managing users, or reviewing services. Learners can attempt the command in the mock terminal, then mark the card as Again, Good, or Mastered. Progress is persisted locally, allowing review and mastery counts to accumulate across sessions.</p>
+                    <p><strong>Scaffolding:</strong> Each card includes layered support: a conceptual hint, a syntax/flag hint, and a revealable correct execution. This keeps the learner in the problem space longer before showing the answer. Alternative modes support different stages of learning: the sandbox shell favors production-like recall, multiple choice lowers difficulty for recognition practice, and true/false checks help learners test conceptual distinctions.</p>
+                    <p><strong>Technical Design:</strong> The application is a static HTML and JavaScript learning tool with an embedded command database of 103 Linux administration tasks. Each command object includes category, scenario, hints, accepted command variations, explanation, and mock terminal output. The interface renders command lists, filters, card state, study modes, terminal output, and the bottom cheat sheet directly from that structured data.</p>
+                    <p>The mock bash terminal simulates realistic interaction patterns without giving learners unrestricted system access. It supports typed command evaluation against accepted variants, command history navigation, help and hint commands, mock output, permission-denied feedback for missing elevated privileges, and a sudo password prompt flow. This lets learners rehearse administrative command behavior safely inside the browser.</p>
+                    <p>The glossary is not a separate document bolted onto the activity. It is generated from the same command database as the flashcards, which keeps practice content and reference content aligned. Searching the cheat sheet lets learners recover terminology when needed, while clicking a command routes them back into the corresponding practice card.</p>
                 </details>
             </div>
         </article>
