@@ -51,9 +51,9 @@ require_fixed '<img class="portfolio-logo-image" src="images/carmelito-i.png" al
 require_fixed '<img class="portfolio-logo-image" src="images/carmelito-ii.png" alt="Carmelito legislative library screen">' "Carmelito library image is not using the expected local asset markup"
 require_fixed '<img class="portfolio-logo-image" src="images/carmelite_iv.png" alt="Carmelito progress dashboard screen">' "Carmelito dashboard image is not using the expected local asset markup"
 require_fixed '<img class="portfolio-logo-image" src="images/linux-learning-i.png" alt="Linux Terminal Glossary command library screen">' "Linux Learning App image is not using the expected local asset markup"
-require_fixed '<img class="portfolio-logo-image" src="images/cultural-historical-i.png" alt="Pre-Spanish Mesoamerica presentation section on sacrificial ceremonies">' "Heritage first image is not using the expected local asset markup"
-require_fixed '<img class="portfolio-logo-image" src="images/cultural-historical-ii.png" alt="Pre-Spanish Mesoamerica presentation learning content">' "Heritage second image is not using the expected local asset markup"
-require_fixed '<img class="portfolio-logo-image" src="images/cultural-historical-iii.png" alt="Pre-Spanish Mesoamerica presentation reference section">' "Heritage third image is not using the expected local asset markup"
+require_fixed '<img class="portfolio-logo-image" src="images/mesoAmerican-i.png" alt="Mesoamerican socio-cultural learning presentation overview">' "Socio-cultural Learning first image is not using the expected local asset markup"
+require_fixed '<img class="portfolio-logo-image" src="images/cultural-historical-ii.png" alt="Pre-Spanish Mesoamerica presentation learning content">' "Socio-cultural Learning second image is not using the expected local asset markup"
+require_fixed '<img class="portfolio-logo-image" src="images/cultural-historical-iii.png" alt="Pre-Spanish Mesoamerica presentation reference section">' "Socio-cultural Learning third image is not using the expected local asset markup"
 
 if perl -0ne 'exit((/<a\b[^>]*>\s*<div class="portfolio-logo-placeholder" aria-hidden="true">/s) ? 1 : 0)' "$file"; then
   :
