@@ -39,6 +39,9 @@ reject_fixed '[Insert your 2024-2026 citation here]' "Found inline citation plac
 reject_fixed '[Note: Insert the specific 2024-2026 APA citations' "Found references placeholder note"
 reject_fixed '<a href="#"' "Found legacy placeholder anchors"
 reject_fixed '<img src="https://via.placeholder.com/' "Found old placeholder image tags"
+reject_fixed '<section class="reader-guide"' "Found interview-team notification block"
+reject_fixed 'For interview teams' "Found interview-team notification heading"
+reject_fixed '<section class="references-section portfolio-slide" data-slide-title="References">' "Found final references slide"
 
 placeholder_count=$(grep -Fc '<div class="portfolio-logo-placeholder" aria-hidden="true">' "$file" || true)
 [[ "$placeholder_count" -eq 0 ]] || fail "Expected no non-clickable placeholder panels, found $placeholder_count"

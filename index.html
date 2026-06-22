@@ -74,28 +74,6 @@
             position: relative;
         }
 
-        .reader-guide {
-            background: var(--card-bg);
-            border: 1px solid #d7dee6;
-            border-left: 5px solid var(--accent-color);
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.04);
-            margin-bottom: 2rem;
-            padding: 1.75rem 2rem;
-        }
-
-        .reader-guide h2 {
-            font-family: 'Lexend', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            color: var(--primary-color);
-            font-size: 1.25rem;
-            margin: 0 0 0.75rem 0;
-        }
-
-        .reader-guide p {
-            margin: 0;
-            color: #444444;
-        }
-
         .portfolio-carousel-controls {
             display: flex;
             align-items: center;
@@ -160,8 +138,7 @@
             scroll-snap-align: start;
         }
 
-        .portfolio-carousel-track .portfolio-item,
-        .portfolio-carousel-track .references-section {
+        .portfolio-carousel-track .portfolio-item {
             margin-top: 0;
             margin-bottom: 0;
         }
@@ -369,49 +346,6 @@
             margin-bottom: 0;
         }
 
-        /* References Section */
-        .references-section {
-            background-color: var(--card-bg);
-            padding: 2.5rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            margin-top: 4rem;
-            margin-bottom: 2rem;
-        }
-
-        .references-section h2 {
-            font-family: 'Lexend', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            color: var(--primary-color);
-            font-size: 1.5rem;
-            margin-top: 0;
-            border-bottom: 2px solid #f0f0f0;
-            padding-bottom: 0.5rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .references-section h3 {
-            font-family: 'Lexend', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            color: #555;
-            font-size: 1.1rem;
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        .reference-item {
-            margin-bottom: 1.2rem;
-            padding-left: 2em;
-            text-indent: -2em; /* APA hanging indent */
-            font-size: 0.9rem;
-            line-height: 1.5;
-            color: #555;
-        }
-
-        .references-note {
-            color: #555;
-            font-size: 0.9rem;
-            margin-bottom: 1.5rem;
-        }
-
         /* Footer & Socials */
         footer {
             background-color: var(--primary-color);
@@ -504,16 +438,8 @@
                 padding: 0 1rem;
             }
 
-            .reader-guide {
-                padding: 1.25rem;
-            }
-
             .summary-grid {
                 grid-template-columns: 1fr;
-            }
-            
-            .references-section {
-                padding: 1.5rem;
             }
         }
     </style>
@@ -526,11 +452,6 @@
     </header>
 
     <main class="container">
-        <section class="reader-guide" aria-labelledby="reader-guide-title">
-            <h2 id="reader-guide-title">For interview teams</h2>
-            <p>This portfolio is organized as evidence of learning design, educational technology, and applied systems work. Each project begins with a concise role, outcome, design lens, and technical scope. The longer academic and technical notes are expandable for reviewers who want to examine the theory and implementation decisions behind the artifact.</p>
-        </section>
-
         <section class="portfolio-carousel-shell" aria-label="Portfolio projects">
             <div class="portfolio-carousel-controls">
                 <div class="portfolio-carousel-status" id="portfolioStatus" aria-live="polite"></div>
@@ -810,48 +731,6 @@
             </div>
         </article>
 
-        <!-- Academic References Section -->
-        <section class="references-section portfolio-slide" data-slide-title="References">
-            <h2>References</h2>
-            
-            <h3>Foundational Adult Learning Principles</h3>
-            
-            <div class="reference-item">
-                Clark, M. C., & Rossiter, M. (2008). Narrative learning in adulthood. <em>New Directions for Adult and Continuing Education</em>, 2008(119), 61-70.
-            </div>
-
-            <div class="reference-item">
-                Knowles, M. S. (1975). <em>Self-directed learning: A guide for learners and teachers</em>. Association Press.
-            </div>
-            
-            <div class="reference-item">
-                Knowles, M. S. (1984). <em>The adult learner: A neglected species</em> (3rd ed.). Gulf Publishing.
-            </div>
-
-            <div class="reference-item">
-                Lave, J., & Wenger, E. (1991). <em>Situated learning: Legitimate peripheral participation</em>. Cambridge University Press.
-            </div>
-
-            <div class="reference-item">
-                Siemens, G. (2005). Connectivism: A learning theory for the digital age. <em>International Journal of Instructional Technology and Distance Learning</em>, 2(1), 3-10.
-            </div>
-            
-            <div class="reference-item">
-                Sweller, J. (1988). Cognitive load during problem solving: Effects on learning. <em>Cognitive Science</em>, 12(2), 257-285.
-            </div>
-            
-            <div class="reference-item">
-                Vygotsky, L. S. (1978). <em>Mind in society: The development of higher psychological processes</em>. Harvard University Press.
-            </div>
-
-            <div class="reference-item">
-                Winne, P. H., & Baker, R. S. (2013). The potentials of educational data mining for researching metacognition, motivation and self-regulated learning. <em>Journal of Educational Data Mining</em>, 5(1), 1-8.
-            </div>
-            
-            <h3>2024-2026 Evidence-Based Design Studies</h3>
-            <p class="references-note"><em>Recent 2024-2026 supporting studies are being finalized for publication and will be added in a follow-up update.</em></p>
-
-        </section>
             </div>
             <div class="portfolio-carousel-dots" id="portfolioDots" aria-label="Portfolio slide navigation"></div>
         </section>
