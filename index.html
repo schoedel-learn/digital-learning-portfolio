@@ -74,6 +74,28 @@
             position: relative;
         }
 
+        .reader-guide {
+            background: var(--card-bg);
+            border: 1px solid #d7dee6;
+            border-left: 5px solid var(--accent-color);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.04);
+            margin-bottom: 2rem;
+            padding: 1.75rem 2rem;
+        }
+
+        .reader-guide h2 {
+            font-family: 'Lexend', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            color: var(--primary-color);
+            font-size: 1.25rem;
+            margin: 0 0 0.75rem 0;
+        }
+
+        .reader-guide p {
+            margin: 0;
+            color: #444444;
+        }
+
         .portfolio-carousel-controls {
             display: flex;
             align-items: center;
@@ -275,12 +297,63 @@
             font-weight: 600;
         }
 
+        .interview-summary {
+            background: #fbfdff;
+            border: 1px solid #dbe7f0;
+            border-radius: 8px;
+            margin: 1.25rem 0;
+            padding: 1rem;
+        }
+
+        .interview-summary-title {
+            font-family: 'Lexend', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            color: var(--primary-color);
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.8rem;
+            text-transform: uppercase;
+        }
+
+        .summary-grid {
+            display: grid;
+            gap: 0.75rem;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .summary-item {
+            color: #444444;
+            font-size: 0.94rem;
+            line-height: 1.45;
+        }
+
+        .summary-item strong {
+            color: var(--primary-color);
+            font-family: 'Lexend', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
         .pedagogy-block {
             background-color: #f1f8ff;
             border-left: 4px solid var(--primary-color);
             padding: 1.2rem;
             border-radius: 0 4px 4px 0;
             font-size: 0.95rem;
+        }
+
+        details.pedagogy-block {
+            cursor: default;
+        }
+
+        details.pedagogy-block summary {
+            color: var(--primary-color);
+            cursor: pointer;
+            font-family: 'Lexend', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-weight: 700;
+            list-style-position: outside;
+        }
+
+        details.pedagogy-block summary + p {
+            margin-top: 1rem;
         }
         
         .pedagogy-block strong {
@@ -406,11 +479,37 @@
             }
 
             .portfolio-item.featured-visual .portfolio-logo-container {
+                flex: 0 0 auto;
                 padding: 1rem;
+            }
+
+            .portfolio-image-stack {
+                flex-direction: row;
+                height: auto;
+                justify-content: flex-start;
+                overflow-x: auto;
+                padding-bottom: 0.25rem;
+                scroll-snap-type: x mandatory;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .portfolio-image-stack .portfolio-logo-image {
+                flex: 0 0 84%;
+                max-height: 260px;
+                object-fit: contain;
+                scroll-snap-align: center;
             }
 
             .container {
                 padding: 0 1rem;
+            }
+
+            .reader-guide {
+                padding: 1.25rem;
+            }
+
+            .summary-grid {
+                grid-template-columns: 1fr;
             }
             
             .references-section {
@@ -427,6 +526,11 @@
     </header>
 
     <main class="container">
+        <section class="reader-guide" aria-labelledby="reader-guide-title">
+            <h2 id="reader-guide-title">For interview teams</h2>
+            <p>This portfolio is organized as evidence of learning design, educational technology, and applied systems work. Each project begins with a concise role, outcome, design lens, and technical scope. The longer academic and technical notes are expandable for reviewers who want to examine the theory and implementation decisions behind the artifact.</p>
+        </section>
+
         <section class="portfolio-carousel-shell" aria-label="Portfolio projects">
             <div class="portfolio-carousel-controls">
                 <div class="portfolio-carousel-status" id="portfolioStatus" aria-live="polite"></div>
@@ -449,16 +553,26 @@
             </div>
             <div class="portfolio-content">
                 <h2>1) LearnCAT: Diocese of Baton Rouge</h2>
-                <div class="coursework-tags">Project: Create a learning environment that faciliates Catholic faith formation.  </div>
-                I architected, configured, and deployed the LearnCAT <em>Learning Management System</em> for the Diocese of Baton Rouge. By designing a centralized, easily accessible digital infrastructure, the system renewed formation efforts and allowed for scalable, asynchronous faith formation and administrative training across diverse parish communities and Catholic schools.</p>
+                <div class="coursework-tags">Project: Create a learning environment that facilitates Catholic faith formation.  </div>
+                <div class="interview-summary">
+                    <div class="interview-summary-title">Interview summary</div>
+                    <div class="summary-grid">
+                        <div class="summary-item"><strong>Role:</strong> Platform architect, curriculum lead, editor, and implementation owner.</div>
+                        <div class="summary-item"><strong>Outcome:</strong> Centralized diocesan formation through a scalable LMS and eight-course curriculum.</div>
+                        <div class="summary-item"><strong>Design lens:</strong> Communities of practice, blended learning, and adult professional formation.</div>
+                        <div class="summary-item"><strong>Technical scope:</strong> WordPress, LearnDash, WooCommerce, xAPI/Rise content, MFA/security, and Google Sheets automation.</div>
+                    </div>
+                </div>
+                <p>I architected, configured, and deployed the LearnCAT <em>Learning Management System</em> for the Diocese of Baton Rouge. By designing a centralized, easily accessible digital infrastructure, the system renewed formation efforts and allowed for scalable, asynchronous faith formation and administrative training across diverse parish communities and Catholic schools.</p>
                 <p>This project included the development and implementation of a new eight course curriculum. I employed 5 diocesan instructors to help with course development as subject matter experts. I was the content creator for, The Catholic Identity of the Catholic School course, and the editor for all the others.</p>
-                <div class="pedagogy-block">
+                <details class="pedagogy-block">
+                    <summary>Academic and technical design notes</summary>
                     <p><strong>Applied Adult Learning Principle: Social Cognition and Communities of Practice: </strong> Situated cognition (or social cognition) holds that learning is inseparable from the context in which it occurs. Lave & Wenger have made an enormous contribution to organizational culture in the United States and Canada through the development of our conception of communities of practice. The real gift of their research is that it helped people recognize that learning isn't an individual cognitive exercise.</p>
                     <p>Adult professionals who participate in communities of practice benefit from the culture of that community in ways that deepen their knowledge and professionalization. I differ from Lave and Wenger in that I am not a strict constructionist but I value their insight. In learning design, especially in particular contexts, I consider how I can facilitate the development of communities of practice (Lave & Wenger, 1991).</p> 
-                    <p>This particular design used a blended format with xAPI files exported from Rise 											for learning content sections.The design has seven stages: 1) Course overview, which is like a syllabus but also includes information about how to use the platform 2) Introductory Exercise - this helps learners start to use the social features of the learning platform and get to know each other (using the forum) 3) Learning Content sections - opportunity for interested adults to grow in knowledge about the various topics 4) Instructor Faciliated Section: cohort is together with a facilitator fielding questions about content and bringing up challenging issues about it. By drawing on the knowledge the cohort already has this kind of facilitation can help professionalize as each learner is particpating and able to contribute - it's not a didactic session.</p>
-                    <p>This pattern is repated with 5) Learning Content II 6) Instructor Facilitated II 7) Concluding Exercise. Using a cohort model and encouraging participants to grow as communities of practice makes this learning experience different than one that is merely didactic. There are elements to the learning content that are more didactic but that is only a small part of the larger course design.</p>
+                    <p>This particular design used a blended format with xAPI files exported from Rise for learning content sections. The design has seven stages: 1) Course overview, which is like a syllabus but also includes information about how to use the platform 2) Introductory Exercise - this helps learners start to use the social features of the learning platform and get to know each other (using the forum) 3) Learning Content sections - opportunity for interested adults to grow in knowledge about the various topics 4) Instructor Facilitated Section: cohort is together with a facilitator fielding questions about content and bringing up challenging issues about it. By drawing on the knowledge the cohort already has this kind of facilitation can help professionalize as each learner is participating and able to contribute - it's not a didactic session.</p>
+                    <p>This pattern is repeated with 5) Learning Content II 6) Instructor Facilitated II 7) Concluding Exercise. Using a cohort model and encouraging participants to grow as communities of practice makes this learning experience different than one that is merely didactic. There are elements to the learning content that are more didactic but that is only a small part of the larger course design.</p>
                     <p><strong>Technical design: </strong> This platform was built using the open source version of WordPress, extending it with an LMS called Learndash. The course content was developed using Articulate and those files were exported/imported as xAPI (rather than SCORM). The choice for xAPI was for deeper learner analytics and the relative drag of SCORM files. LearnCAT also utilizes WooCommerce for payment/registration and has a security extension that includes MFA and DDoS protection. This and various forms are automated to send data to Google Sheets.</p>
-                </div>
+                </details>
             </div>
         </article>
 
@@ -474,8 +588,18 @@
             <div class="portfolio-content">
                 <h2>2) Cyril-OCIA Training Chatbot</h2>
                 <div class="coursework-tags">Project: Create a learning object that is adaptive for an OCIA formation course.</div>
+                <div class="interview-summary">
+                    <div class="interview-summary-title">Interview summary</div>
+                    <div class="summary-grid">
+                        <div class="summary-item"><strong>Role:</strong> AI learning-object designer and full-stack implementation lead.</div>
+                        <div class="summary-item"><strong>Outcome:</strong> Adaptive conversational support for OCIA leaders, catechists, and course participants.</div>
+                        <div class="summary-item"><strong>Design lens:</strong> Scaffolded practice, andragogy, situated pastoral application, and screen-time restraint.</div>
+                        <div class="summary-item"><strong>Technical scope:</strong> Angular, Material, Tailwind/PostCSS, Gemini API, Firestore knowledge base, SendGrid, Google APIs, Express, PM2, and VPS deployment.</div>
+                    </div>
+                </div>
                 <p>I engineered a specialized conversational AI agent to support the Order of Christian Initiation of Adults (OCIA). The chatbot was explicitly designed to act as an educational tool that facilitates knowledge growth and practice confidence for OCIA leaders and catechists</p>
-                <div class="pedagogy-block">
+                <details class="pedagogy-block">
+                    <summary>Academic and technical design notes</summary>
                     <p><strong>Adult Learning Principle: Scaffolded Practice & Andragogy: </strong> While andragogy has been challenged in different ways, Scholars demonstrate that Knowlesian andragogical principles are still considered widely applicable. Studies have demonstrated that their use yields better results than merely didactic approaches.</p>
 
                     <p>The chatbot's conversational architecture provides graduated, responsive scaffolding, an approach that can adapt to the level of understanding of the learner and provide support based on that foundation. There is a significant body of literature that supports scaffolding for young and adult learners.</p>
@@ -487,7 +611,7 @@
                     2) Chat Interface: Angular application.
                     3) Backend: Express API, managed via PM2 to ensure persistent performance and high availability.
                     </p>
-                </div>
+                </details>
             </div>
         </article>
 
@@ -503,15 +627,25 @@
             <div class="portfolio-content">
                 <h2>3) LXPython – Mobile-First Instruction Environment</h2>
                 <div class="coursework-tags">Project: Design a mobile learning environment for a programming language that wasn't immediately boring, that doesn't start the same way every time, that was challenging and effective.  </div>
+                <div class="interview-summary">
+                    <div class="interview-summary-title">Interview summary</div>
+                    <div class="summary-grid">
+                        <div class="summary-item"><strong>Role:</strong> Learning experience designer and application architect.</div>
+                        <div class="summary-item"><strong>Outcome:</strong> A mobile-first, project-based Python learning environment for motivated adult learners.</div>
+                        <div class="summary-item"><strong>Design lens:</strong> Self-directed learning, ADHD-aware pacing, immediate challenge, and metacognitive support.</div>
+                        <div class="summary-item"><strong>Technical scope:</strong> Angular, TypeScript, Angular Material/CDK, Tailwind/PostCSS, Pyodide, Monaco Editor, Firebase Auth, Firestore, and AI tutoring services.</div>
+                    </div>
+                </div>
                 <p>Designed and deployed LXPython, a mobile-first learning application. This project integrated official technical documentation with agentic AI facilitation, allowing adult learners to engage with complex programming material through a structured, highly modular environment.</p>
                 <p>LXPython is an application for learning the Python programming language. I intentionally designed it for adult ADHD learners using evidence-based approaches. It starts out difficult rather than with the most basic and trivial information. It is project-based and structured for informal learning rather than a traditional school or text-book based approach. It is designed for people who want to learn rather than for people for whom learning is compulsory.</p>
                 <p>This project integrated official technical documentation with agentic AI facilitation, allowing adult learners to engage with complex programming material through a structured, modular, project-based, environment.</p>
-                <div class="pedagogy-block">
+                <details class="pedagogy-block">
+                    <summary>Academic and technical design notes</summary>
                     <p><strong>Applied Adult Learning Principle: Self-Directed Learning.</strong> Adults seek out informal learning environments to fulfill specific personal and professional growth needs. According to self-directed learning theory, adult learners are highly self-motivated and prefer to take ownership of their instructional paths. Rather than following a rigid, linear curriculum, self-directed adults thrive when they can actively explore resources and seek answers just-in-time. This autonomy is particularly crucial for neurodivergent learners, such as those with ADHD, who can become disengaged by repetitive, elementary instruction and instead require immediate, stimulating, and meaningful engagement with complex tasks.</p>
                     <p>In LXPython, this principle is operationalized by bypassing typical low-ceiling introductory tutorials in favor of immediate, high-cognitive-load coding challenges. By embedding official technical documentation alongside an interactive python runtime and an agentic AI tutor, the application functions as an adaptive, non-linear workspace. Learners are not forced into a compulsory, lock-step sequence; instead, they choose their own projects, test their code in real-time, and leverage the AI facilitator to resolve conceptual gaps on their own terms. This design respects the learner's self-concept as an independent problem-solver, facilitating deeper metacognitive awareness and active schema construction.</p>
                     <p><strong>Technical Design</strong> LXPython is technically designed as an Angular 21 learning application with a modern TypeScript frontend, Angular Material/CDK UI primitives, Tailwind/PostCSS styling, and optional server-side rendering through Angular SSR with a small Express host. Its core interactive feature is an in-browser Python runtime powered by Pyodide, which lets learners execute Python code directly in the client without depending on a remote execution server. The interface also embeds Monaco Editor for structured coding exercises, which makes the platform feel closer to a lightweight IDE than a static course page.</p>
                     <p>On the data and intelligence side, LXPython uses Firebase Authentication and Cloud Firestore to persist learner profiles, chat history, learning progress, memories, code attempts, forum posts, and user secrets. The teaching layer is implemented as an AI learning agent service that builds responses from user profile data and stored learning history, then calls an LLM API to generate calibrated instructional guidance. In practice, that means the system is architected as a stateful adaptive learning environment: browser-based code execution for immediate practice, Firestore-backed learner state for persistence, and an AI facilitation layer that personalizes explanations, feedback, and progression over time.</p>
-                </div>
+                </details>
             </div>
         </article>
 
@@ -527,32 +661,56 @@
             <div class="portfolio-content">
                 <h2>4) xAPI LRS and Statement Monitor</h2>
                 <div class="coursework-tags">Project: Develop a tool for monitoring learner progress in a way that gives insight into learner behavior as well as tracking errors in the LMS</div>
+                <div class="interview-summary">
+                    <div class="interview-summary-title">Interview summary</div>
+                    <div class="summary-grid">
+                        <div class="summary-item"><strong>Role:</strong> Diagnostic tool developer and learning analytics designer.</div>
+                        <div class="summary-item"><strong>Outcome:</strong> A monitoring layer for tracing learner events, completion behavior, and LMS/LRS mismatches.</div>
+                        <div class="summary-item"><strong>Design lens:</strong> Data-driven metacognition, reliable progression evidence, and instructional quality assurance.</div>
+                        <div class="summary-item"><strong>Technical scope:</strong> xAPI statement capture, LRS validation, LearnDash progression comparison, WordPress plugin development, and analytics troubleshooting.</div>
+                    </div>
+                </div>
                 <p>Built a backend tracking system utilizing the Experience API (xAPI) to capture granular, cross-platform learning behaviors. Moving beyond standard SCORM completion tracking, this monitor gathered data on engagement, time-on-task, and interactive choices to evaluate instructional effectiveness.</p>
-                <div class="pedagogy-block">
+                <details class="pedagogy-block">
+                    <summary>Academic and technical design notes</summary>
                     <p><strong>Applied Adult Learning Principle: Data-Driven Metacognition (Winne & Baker, 2013).</strong> By analyzing behavioral patterns, instructional designers can adjust learning paths in real-time to match the learner's actual cognitive state rather than a presumed pace.</p>
                     <p>The purpose of using the xAPI file type instead of SCORM was to better understand and respond to learner activity. This can facilitate learning for the learner but also give administrators vital information about learner behavior in particular learning environments.</p>
                     <p>Data-driven metacognition can be understood in a different ways, e.g. when adult learners realize there is some awareness of and accountability for their activity in a learning environment they are more likely to reflect upon and adjust how they think about it in ways that influences behavior positively for learning.</p>
                     <p>However, when the system doesn't provide those insights due to an error and/or gets in the way of learner progression, it has a negative impact. When utilizing technologies to facilitate learning, a big part of that can be addressing bugs and shortcomings of these various technologies. This plugin I developed is one tool to do that.</p>
                     <p><strong>Evidence-Based Design:</strong> xAPI (Experience API) packages generate structured learning event statements that record user activity in the form of data, often with timestamps, results, context, and completion metadata. Unlike SCORM, which is tightly coupled to an LMS runtime, xAPI statements can be sent from multiple environments and learning experiences, but they require a Learning Record Store (LRS) to receive, validate, store, and query those statements for analytics. The LRS is what makes xAPI useful at scale: it serves as the system of record for engagement, progression, completion, and behavioral data, enabling reporting across learning modules, platforms, and user contexts rather than confining analytics to a single course shell.</p>
                     <p> The xAPI Statement Monitor was developed as a diagnostic layer to identify breakdowns between xAPI content, the LRS, and LearnDash course progression logic. In practice, it was used to trace malformed or missing statements, monitor whether expected completion and progress events were actually being transmitted, and compare those events against LearnDash’s own progression and completion states inside WordPress. This made it possible to detect where learner analytics and LMS completion behavior were diverging, isolate issues in statement formatting or delivery, and support more reliable reporting on whether learners had actually progressed through course activities as intended.</p>
-                </div>
+                </details>
             </div>
         </article>
 
-        <!-- 5. Under Development -->
-        <article class="portfolio-item portfolio-slide" data-slide-title="New Project">
+        <!-- 5. Carmelito -->
+        <article class="portfolio-item featured-visual portfolio-slide" data-slide-title="Carmelito">
             <div class="portfolio-logo-container">
-                <div class="portfolio-logo-placeholder" aria-hidden="true">New Project</div>
+                <div class="portfolio-image-stack">
+                    <img class="portfolio-logo-image" src="images/carmelito-i.png" alt="Carmelito sign-in screen">
+                    <img class="portfolio-logo-image" src="images/carmelito-ii.png" alt="Carmelito legislative library screen">
+                    <img class="portfolio-logo-image" src="images/carmelite_iv.png" alt="Carmelito progress dashboard screen">
+                </div>
             </div>
             <div class="portfolio-content">
-                <h2>5) Project Under Development</h2>
-                <div class="coursework-tags">Applying: Instructional Design | Adult Learning</div>
-                <p>A new learning design project is currently under development. Detailed specifications, visual assets, and supporting links will be provided upon public release.</p>
-                <p class="project-status">Supporting project links and visual assets are being finalized for this public portfolio release.</p>
-                <div class="pedagogy-block">
-                    <p><strong>Adult Learning Principle: Scaffolding (Vygotsky, 1978).</strong> Learning is optimized when structural supports are adjusted to the learner's developmental zone.</p>
-                    <p><strong>Evidence-Based Design:</strong> This portfolio section is paired with a current literature review, and the final 2024-2026 APA citation details will be added in the next content revision.</p>
+                <h2>5) Carmelito – Carmelite Formation Companion</h2>
+                <div class="coursework-tags">Project: Design a reflective learning and formation environment for Carmelite spirituality.</div>
+                <div class="interview-summary">
+                    <div class="interview-summary-title">Interview summary</div>
+                    <div class="summary-grid">
+                        <div class="summary-item"><strong>Role:</strong> Formation experience designer and application builder.</div>
+                        <div class="summary-item"><strong>Outcome:</strong> A reflective workspace for tracking prayer, formation habits, and textual study over time.</div>
+                        <div class="summary-item"><strong>Design lens:</strong> Reflective practice, spiritual formation, low-distraction learning, and habit-supported self-examination.</div>
+                        <div class="summary-item"><strong>Technical scope:</strong> Authenticated web application, formation dashboard, multilingual library, legislative reference organization, and AI-assisted study support.</div>
+                    </div>
                 </div>
+                <p>Designed Carmelito as a contemplative learning workspace for Carmelite formation. The application combines daily reflection, progress tracking, legislative reference material, multilingual library organization, and AI-assisted study support in a single interface.</p>
+                <p>The project is intentionally designed around spiritual formation rather than attention capture. Its learning value comes from helping adults maintain reflective practice, connect canonical and spiritual texts to daily habits, and track growth over time without turning prayer or formation into a gamified distraction.</p>
+                <details class="pedagogy-block">
+                    <summary>Academic and technical design notes</summary>
+                    <p><strong>Adult Learning Principle: Reflective Practice.</strong> Formation-oriented learning depends on repeated attention, self-examination, and the integration of text, habit, memory, and community identity. Carmelito supports this through daily logging, guided reflection, and a library structured around sources that matter to the learner's vocation.</p>
+                    <p><strong>Technical Design:</strong> Carmelito is a web application with authenticated user state, a structured legislative library, dashboard metrics, and a dark, low-distraction visual system. The interface organizes formation activity across reflection, practices, library resources, progress views, and community-facing context while preserving space for human judgment and spiritual direction.</p>
+                </details>
             </div>
         </article>
 
@@ -568,50 +726,86 @@
             <div class="portfolio-content">
                 <h2>6) DRM – Diocesan Relationship Manager</h2>
                 <div class="coursework-tags">Project: Assist diocesan personnel in developing a consistent source of truth for those they serve to more effectively carry out the mission of their respective areas. </div>
+                <div class="interview-summary">
+                    <div class="interview-summary-title">Interview summary</div>
+                    <div class="summary-grid">
+                        <div class="summary-item"><strong>Role:</strong> Product designer and full-stack information-system developer.</div>
+                        <div class="summary-item"><strong>Outcome:</strong> A diocesan source of truth for relationships, organizations, roles, forms, and institutional knowledge.</div>
+                        <div class="summary-item"><strong>Design lens:</strong> Connectivism, knowledge continuity, organizational learning, and cross-office visibility.</div>
+                        <div class="summary-item"><strong>Technical scope:</strong> Laravel backend, JavaScript frontend, relational data models, configurable entity types, custom fields, forms, calendars, and dashboards.</div>
+                    </div>
+                </div>
                 <p> Developed a Diocesan Relationship Manager to track relations with parish ministry personnel, relevant school personnel, peers from other dioceses, apostolate leaders and vendors who work with the diocese. </p>
                 <p>While this platform wasn't designed as a course, learning activity or learner experience it functions as a means of managing knowledge in the form of vital information. Doing this well help personnel learn who their constituents and peers, etc. are across different areas of ministry. This is especially helpful for addressing knowledge loss from turnover and from knowledge silos from office to office. </p>
-                <div class="pedagogy-block">
+                <details class="pedagogy-block">
+                    <summary>Academic and technical design notes</summary>
                     <p><strong>Adult Learning Principle: Connectivism (Siemens, 2005).</strong> In a digital age, learning occurs not just within the individual, but across the networks and relationships that individuals maintain within their organization.</p>
                     <p>Connectivism argues that in networked digital environments, learning resides in the connections between nodes — people, resources, and organizations — and that the capacity to maintain and traverse those networks is itself a core competency. Utilizing these connected networks becomes integral to learning.</p> 
                     <p>Connectivism is a contemporary theory of learning that can be applied to professional settings that are highly dependent upon connected organizational structures (nodes) for success.Research shows that connectivist principles provide a coherent architecture for leadership and organizational development in digital contexts. In addition, empirical research demonstrates that connectivism-informed design strengthens learners' capacity for adaptive, networked knowledge construction in complex institutional environments.</p>
 
                     <p><strong>Technical design:</strong> ● The DRM (Diocesan Relationship Manager) is a web-based information system designed to model the organizational, pastoral, and administrative complexity of a Catholic diocese. Technically, it combines a Laravel backend with a modern JavaScript frontend to manage structured entities such as contacts, clergy, parishes, organizations, forms, calendars, and custom data fields. Its architecture supports both internal administrative workflows and public-facing data collection through configurable forms, while maintaining relational links between people, roles, institutions, and ministry activities. This makes it possible to move beyond isolated spreadsheets or basic CRM records and instead manage diocesan life as an interconnected system.</p>
                     <p>From an engineering standpoint, the platform is built for extensibility and operational visibility. It uses database-backed models and migrations to represent diocesan structures, supports authenticated staff workflows, and includes configurable entity types and custom fields so the data model can evolve without redesigning the application from scratch. Additional features such as liturgical calendar integration, workflow-oriented dashboards, and structured form submissions position the DRM not just as a contact manager, but as a diocesan operations platform capable of supporting communication, planning, reporting, and long-term institutional knowledge.</p>
-                </div>
+                </details>
             </div>
         </article>
 
         <!-- 7. Linux Learning Application and Glossary -->
-        <article class="portfolio-item portfolio-slide" data-slide-title="Linux Learning App">
+        <article class="portfolio-item featured-visual portfolio-slide" data-slide-title="Linux Learning App">
             <div class="portfolio-logo-container">
-                <div class="portfolio-logo-placeholder" aria-hidden="true">Linux Learning App</div>
+                <div class="portfolio-image-stack">
+                    <img class="portfolio-logo-image" src="images/linux-learning-i.png" alt="Linux Terminal Glossary command library screen">
+                </div>
             </div>
             <div class="portfolio-content">
                 <h2>7) Linux Learning Application and Glossary</h2>
                 <div class="coursework-tags">Applying: Instructional Design | Theories of Learning</div>
+                <div class="interview-summary">
+                    <div class="interview-summary-title">Interview summary</div>
+                    <div class="summary-grid">
+                        <div class="summary-item"><strong>Role:</strong> Technical learning designer and tool builder.</div>
+                        <div class="summary-item"><strong>Outcome:</strong> A searchable command glossary that turns Linux administration into browsable micro-learning.</div>
+                        <div class="summary-item"><strong>Design lens:</strong> Cognitive load theory, chunking, just-in-time support, and searchable reference learning.</div>
+                        <div class="summary-item"><strong>Technical scope:</strong> Command taxonomy, categorized search UI, server-administration content model, and operational tooling vocabulary.</div>
+                    </div>
+                </div>
                 <p>Developed an interactive application and comprehensive glossary designed to demystify Linux server administration. The architecture chunked highly technical concepts into digestible, easily searchable micro-learning modules.</p>
-                <p class="project-status">Supporting project links and visual assets are being finalized for this public portfolio release.</p>
-                <div class="pedagogy-block">
+                <p class="project-status">The current preview shows a searchable terminal command library with categories for server administration, Docker, Git, GitHub CLI, AI agents, and related operational workflows.</p>
+                <details class="pedagogy-block">
+                    <summary>Academic and technical design notes</summary>
                     <p><strong>Adult Learning Principle: Cognitive Load Theory (Sweller, 1988).</strong> Adults facing high-complexity novel tasks have limited working memory; instruction must eliminate extraneous cognitive friction so mental effort is spent entirely on schema acquisition.</p>
                     <p><strong>Evidence-Based Design:</strong> This portfolio section is paired with a current literature review, and the final 2024-2026 APA citation details will be added in the next content revision.</p>
-                </div>
+                </details>
             </div>
         </article>
 
         <!-- 8. Cultural & Heritage Presentations -->
-        <article class="portfolio-item portfolio-slide" data-slide-title="Heritage Presentations">
+        <article class="portfolio-item featured-visual portfolio-slide" data-slide-title="Heritage Presentations">
             <div class="portfolio-logo-container">
-                <div class="portfolio-logo-placeholder" aria-hidden="true">Heritage Presentations</div>
+                <div class="portfolio-image-stack">
+                    <img class="portfolio-logo-image" src="images/cultural-historical-i.png" alt="Pre-Spanish Mesoamerica presentation section on sacrificial ceremonies">
+                    <img class="portfolio-logo-image" src="images/cultural-historical-ii.png" alt="Pre-Spanish Mesoamerica presentation learning content">
+                    <img class="portfolio-logo-image" src="images/cultural-historical-iii.png" alt="Pre-Spanish Mesoamerica presentation reference section">
+                </div>
             </div>
             <div class="portfolio-content">
                 <h2>8) Heritage Learning Presentations</h2>
                 <div class="coursework-tags">Applying: Informal Learning and Adult Learning | Theories of Learning</div>
-                <p>Curated and designed visual learning presentations focused on Mesoamerican history and Schoedel family heritage. These presentations utilized rich storytelling and archival visuals to transform historical data into deeply engaging, informal learning experiences.</p>
-                <p class="project-status">Supporting project links and visual assets are being finalized for this public portfolio release.</p>
-                <div class="pedagogy-block">
+                <div class="interview-summary">
+                    <div class="interview-summary-title">Interview summary</div>
+                    <div class="summary-grid">
+                        <div class="summary-item"><strong>Role:</strong> Informal learning designer, content curator, and presentation builder.</div>
+                        <div class="summary-item"><strong>Outcome:</strong> A visually structured learning environment for historical interpretation and source-supported exploration.</div>
+                        <div class="summary-item"><strong>Design lens:</strong> Narrative learning, identity-connected learning, visual hierarchy, and informal adult education.</div>
+                        <div class="summary-item"><strong>Technical scope:</strong> Themed presentation interface, long-form content sections, reference organization, and readable historical content design.</div>
+                    </div>
+                </div>
+                <p>Curated and designed visual learning presentations focused on Mesoamerican history and cultural-historical interpretation. These presentations utilized rich storytelling, careful source organization, and visual hierarchy to transform historical data into deeply engaging, informal learning experiences.</p>
+                <p class="project-status">The current preview shows a Pre-Spanish Mesoamerica presentation environment with themed navigation, long-form explanatory sections, and reference-supported learning content.</p>
+                <details class="pedagogy-block">
+                    <summary>Academic and technical design notes</summary>
                     <p><strong>Adult Learning Principle: Narrative Learning (Clark & Rossiter, 2008).</strong> Learning is profoundly accelerated when new information is anchored to a learner’s identity, emotional center, and ancestral narratives.</p>
                     <p><strong>Evidence-Based Design:</strong> This portfolio section is paired with a current literature review, and the final 2024-2026 APA citation details will be added in the next content revision.</p>
-                </div>
+                </details>
             </div>
         </article>
 
