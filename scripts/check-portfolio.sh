@@ -57,6 +57,8 @@ require_fixed '<img class="portfolio-logo-image" src="images/linux-learning-i.pn
 require_fixed '<img class="portfolio-logo-image" src="images/mesoAmerican-i.png" alt="Mesoamerican socio-cultural learning presentation overview">' "Socio-cultural Learning first image is not using the expected local asset markup"
 require_fixed '<img class="portfolio-logo-image" src="images/cultural-historical-ii.png" alt="Pre-Spanish Mesoamerica presentation learning content">' "Socio-cultural Learning second image is not using the expected local asset markup"
 require_fixed '<img class="portfolio-logo-image" src="images/cultural-historical-iii.png" alt="Pre-Spanish Mesoamerica presentation reference section">' "Socio-cultural Learning third image is not using the expected local asset markup"
+require_fixed '<h2>8) Socio-cultural History and Heritage Learning</h2>' "Socio-cultural portfolio item title is not using the expanded heritage framing"
+require_fixed 'family heritage research connected to Germany and the Schoedel family name' "Socio-cultural portfolio item is missing the Schoedel Germany heritage framing"
 
 if perl -0ne 'exit((/<a\b[^>]*>\s*<div class="portfolio-logo-placeholder" aria-hidden="true">/s) ? 1 : 0)' "$file"; then
   :
